@@ -14,7 +14,7 @@
   <head>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <title>网上书店</title>
+    <title>在线网上书店</title>
   </head>
   <body onload="initAJAX()">
   <div class="header">
