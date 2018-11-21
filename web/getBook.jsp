@@ -1,9 +1,13 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
-
+<html>
+<head>
+    <title>Title</title>
+</head>
 <body>
 <%
     Class.forName("org.sqlite.JDBC");
-    String url = "jdbc:sqlite:D:/dropbox/bookstore.db";
+    String url = "jdbc:sqlite::resource:bookstore.db";
     String sql = "select id,name,author,price,image,description,category_id from book" +
             " where category_id = ?";
     String categoryID = request.getParameter("id");
@@ -24,3 +28,4 @@
     conn.close();
 %>
 </body>
+</html>
