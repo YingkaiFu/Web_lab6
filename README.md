@@ -1,5 +1,16 @@
 # 项目介绍
 本项目为南昌大学计算机系Java web程序设计期中作业。
+## 如何使用
+1. Clone下项目，修改iml文件第29行：
+```xml
+ <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.13" level="application_server_libraries" />
+```
+修改其中的Tomcat版本为自己的tomcat版本，或者删掉该行后，在项目结构中重新配置
+2. 在文件getBook.jsp和index.jsp中，修改数据库的路径
+```java
+String url = "jdbc:sqlite:${你的数据库的绝对目录}";
+```
+3. 启动项目，打开网站
 ## 实现功能
 * 客户端
 - [ ] 书籍信息浏览（首页显示书籍类别，点击类别显示该类别书籍信息）
@@ -17,4 +28,4 @@
 - [ ] 后台用户信息查询
 ## 实验要求
 * 需要在12周的时候开始检查
-* 数据库和前端技术框架不做限定    
+* 数据库和前端技术框架不做限定
