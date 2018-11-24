@@ -6,6 +6,7 @@
  <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.13" level="application_server_libraries" />
 ```
 修改其中的Tomcat版本为自己的tomcat版本，或者删掉该行后，在项目结构中重新配置
+
 2. 在文件getBook.jsp和index.jsp中，修改数据库的路径
 ```java
 String url = "jdbc:sqlite:${你的数据库的绝对目录}";
