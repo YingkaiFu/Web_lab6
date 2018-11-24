@@ -38,7 +38,7 @@
               <li class="nav-header">书籍类型</li>
               <%
                   Class.forName("org.sqlite.JDBC");
-                  String url = "jdbc:sqlite::resource:bookstore.db";
+                  String url = "jdbc:sqlite:/home/yingkai/IdeaProjects/Web_lab6/src/bookstore.db";
                   String sql = "select id,name,description from category ";
                   Connection conn = DriverManager.getConnection(url);
                   Statement stat = conn.createStatement();

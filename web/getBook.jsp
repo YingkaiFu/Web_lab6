@@ -7,7 +7,7 @@
 <body>
 <%
     Class.forName("org.sqlite.JDBC");
-    String url = "jdbc:sqlite::resource:bookstore.db";
+    String url = "jdbc:sqlite:/home/yingkai/IdeaProjects/Web_lab6/src/bookstore.db";
     String sql = "select id,name,author,price,image,description,category_id from book" +
             " where category_id = ?";
     String categoryID = request.getParameter("id");
