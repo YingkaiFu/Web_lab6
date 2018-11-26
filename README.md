@@ -1,17 +1,14 @@
 # 项目介绍
 本项目为南昌大学计算机系Java web程序设计期中作业。
 ## 如何使用
-1. Clone下项目，修改iml文件第29行：
-```xml
- <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.13" level="application_server_libraries" />
-```
-修改其中的Tomcat版本为自己的tomcat版本，或者删掉该行后，在项目结构中重新配置
-
-2. 在文件getBook.jsp和index.jsp中，修改数据库的路径
+1. Clone下项目
+2. 修改项目结构中的Modules,加入tomcat,和项目中lib目录下的sqlite.jar文件
+3. 在Artifacts中，新建Web_lab6:war exploded，选择from modules,确认
+4. 在文件getBook.jsp和index.jsp中，修改数据库的路径
 ```java
 String url = "jdbc:sqlite:${你的数据库的绝对目录}";
 ```
-3. 启动项目，打开网站
+5. 双击index.jsp,右击选择run 'index.jsp'打开网站
 ## 实现功能
 * 客户端
 - [ ] 书籍信息浏览（首页显示书籍类别，点击类别显示该类别书籍信息）
