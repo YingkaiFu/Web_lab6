@@ -17,8 +17,7 @@ public class CategoryController extends javax.servlet.http.HttpServlet {
         CategoryService categoryService = new CategoryService();
         List<Category> list = categoryService.findAll();
         request.setAttribute("categories",list);
-        PrintWriter out = response.getWriter();
-        System.out.print(categoryService);
+        response.setCharacterEncoding("gb2312");
         request.getRequestDispatcher("/main.jsp").forward(request,response);
     }
 }
