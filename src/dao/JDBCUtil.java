@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JDBCUtil {
-    private static String DB_URL ="jdbc:sqlite:E:\\Desktop\\大三上课程\\web程序设计\\实验程序\\Web\\Web_lab6\\src\\bookstore.db";
+    private static String DB_URL = "jdbc:sqlite::resource:bookstore.db";
     private static String DB_DRIVER = "org.sqlite.JDBC";
     private static Connection connection = null;
 

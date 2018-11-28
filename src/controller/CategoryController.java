@@ -5,7 +5,6 @@ import vo.Category;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/CategoryController")

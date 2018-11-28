@@ -1,13 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 <%
-    Class.forName("org.sqlite.JDBC");
-    String url = "jdbc:sqlite:E:\\Project\\Web\\Web_lab6\\src\\bookstore.db";
+    try {
+        Class.forName("org.sqlite.JDBC");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    String url = "jdbc:sqlite::resource:bookstore.db";
     String sql = "select id,name,author,price,image,description,category_id from book" +
             " where category_id = ?";
     String categoryID = request.getParameter("id");
