@@ -1,7 +1,6 @@
 package controller;
 
 import service.UserService;
-import vo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,31 +16,22 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
 
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        //获得request传来的参数
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        //封装到User类
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        //查询用户是否存在
-        UserService us = new UserService();
-        User userFlag = us.login(user);
-        //response反馈
-        if(userFlag != null) {
-            response.getWriter().println("User:" + username + "登录成功!");
-        }else {
-            response.getWriter().println("用户不存在或密码错误!");
-        }
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        UserService userService = new UserService();
+        String username = request.getParameter("id");
+        String pwd = request.getParameter("pwd");
+        String phone = request.getParameter("phone");
+        boolean status = userService.login(username, pwd);
+        if (status) {
+            System.out.print("登录成功!");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);//这里不知道往哪个页面跳转
+        } else {
+            System.out.print("登录失败");
+            response.sendRedirect("/login.jsp");
+        }
     }
 
 
