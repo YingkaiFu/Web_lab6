@@ -16,9 +16,10 @@ public class LogupController extends HttpServlet {
         UserService userService = new UserService();
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
-        Boolean status = userService.logup(username, pwd);
+        boolean status = userService.logup(username, pwd);
         if (status) {
             System.out.print("注册成功!");
+            response.getWriter().print("<script>alert('say what you want to say');</script>");
             request.getRequestDispatcher("/login.html").forward(request, response);
         } else {
             System.out.print("注册失败");

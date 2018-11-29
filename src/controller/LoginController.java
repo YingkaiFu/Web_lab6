@@ -1,7 +1,6 @@
 package controller;
 
 import service.UserService;
-import vo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +19,7 @@ public class LoginController extends HttpServlet {
         UserService userService = new UserService();
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
-        Boolean status = userService.logup(username, pwd);
+        boolean status = userService.logup(username, pwd);
         if (status) {
             System.out.print("登录成功!");
             request.getRequestDispatcher("/login.html").forward(request, response);//这里不知道往哪个页面跳转

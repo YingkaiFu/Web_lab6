@@ -10,8 +10,8 @@ import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao {
     @Override
-    public Boolean login(String id, String password) {
-        Boolean status = false;
+    public boolean login(String id, String password) {
+        boolean status = false;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -36,8 +36,8 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public Boolean logup(String id, String password) {
-        Boolean status = false;
+    public boolean logup(String id, String password) {
+        boolean status = false;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
