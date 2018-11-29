@@ -16,6 +16,10 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
 
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         UserService userService = new UserService();
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
@@ -28,12 +32,6 @@ public class LoginController extends HttpServlet {
             System.out.print("登录失败");
             response.sendRedirect("/login.jsp");
         }
-
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
     }
 
 
