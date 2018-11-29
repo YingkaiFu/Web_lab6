@@ -10,7 +10,7 @@ public class UserService {
         return userdao.login(id, password);
     }
 
-    public boolean logup(String id, String password) {
-        return userdao.logup(id, password);
+    public boolean logup(String id, String password, String phone, String tel, String email, String add) {
+        return userdao.logup(id, password, phone, tel, email, add);
     }
 }

@@ -19,13 +19,14 @@ public class LoginController extends HttpServlet {
         UserService userService = new UserService();
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
-        boolean status = userService.logup(username, pwd);
+        String phone = request.getParameter("phone");
+        boolean status = userService.login(username, pwd);
         if (status) {
             System.out.print("登录成功!");
-            request.getRequestDispatcher("/login.html").forward(request, response);//这里不知道往哪个页面跳转
+            request.getRequestDispatcher("/login.jsp").forward(request, response);//这里不知道往哪个页面跳转
         } else {
             System.out.print("登录失败");
-            response.sendRedirect("/login.html");
+            response.sendRedirect("/login.jsp");
         }
 
     }

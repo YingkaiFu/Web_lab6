@@ -16,14 +16,22 @@ public class LogupController extends HttpServlet {
         UserService userService = new UserService();
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
-        boolean status = userService.logup(username, pwd);
+        String phone = request.getParameter("phone");
+        String tel = request.getParameter("tel");
+        String email = request.getParameter("email");
+        String add = request.getParameter("add");
+
+        System.out.print(username);
+        System.out.print(pwd);
+        boolean status = userService.logup(username, pwd, phone, tel, email, add);
+        response.setCharacterEncoding("gb2312");
+        request.setAttribute("status", status);
         if (status) {
             System.out.print("注册成功!");
-            response.getWriter().print("<script>alert('say what you want to say');</script>");
-            request.getRequestDispatcher("/login.html").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
             System.out.print("注册失败");
-            response.sendRedirect("/logup.html");
+            request.getRequestDispatcher("/logup.jsp").forward(request, response);
         }
 
     }
