@@ -11,8 +11,29 @@ import java.sql.SQLException;
 public class UserDaoImpl implements UserDao {
     @Override
     public Boolean login(String id, String password) {
-        return null;
+        Boolean status = false;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select username from user where username = ? and password= ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, password);
+            rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                status = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeConnection(connection);
+        }
+        return status;
     }
+
+
 
     @Override
     public Boolean logup(String id, String password) {

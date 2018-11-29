@@ -17,25 +17,17 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
 
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        //获得request传来的参数
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        //封装到User类
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        //查询用户是否存在
-        UserService us = new UserService();
-        Boolean userFlag = us.login(user.getUsername(), user.getPassword());
-        //response反馈
-        if (userFlag) {
-            response.getWriter().println("User:" + username + "登录成功!");
-        }else {
-            response.getWriter().println("用户不存在或密码错误!");
+        UserService userService = new UserService();
+        String username = request.getParameter("id");
+        String pwd = request.getParameter("pwd");
+        Boolean status = userService.logup(username, pwd);
+        if (status) {
+            System.out.print("登录成功!");
+            request.getRequestDispatcher("/login.html").forward(request, response);//这里不知道往哪个页面跳转
+        } else {
+            System.out.print("登录失败");
+            response.sendRedirect("/login.html");
         }
-
 
     }
 
