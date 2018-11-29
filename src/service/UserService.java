@@ -2,11 +2,15 @@ package service;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
-import vo.User;
 
 public class UserService {
     private UserDao userdao =new UserDaoImpl();
-    public User login(User user){
-        return userdao.login(user);
+
+    public Boolean login(String id, String password) {
+        return userdao.login(id, password);
+    }
+
+    public Boolean logup(String id, String password) {
+        return userdao.logup(id, password);
     }
 }

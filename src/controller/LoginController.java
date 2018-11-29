@@ -28,9 +28,9 @@ public class LoginController extends HttpServlet {
         user.setPassword(password);
         //查询用户是否存在
         UserService us = new UserService();
-        User userFlag = us.login(user);
+        Boolean userFlag = us.login(user.getUsername(), user.getPassword());
         //response反馈
-        if(userFlag != null) {
+        if (userFlag) {
             response.getWriter().println("User:" + username + "登录成功!");
         }else {
             response.getWriter().println("用户不存在或密码错误!");

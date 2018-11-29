@@ -34,7 +34,8 @@
             </div>
             <div class="links span8">
                 <a class="login" href="login.html" rel="tooltip" data-placement="bottom" data-toggle="modal" data-target="#myModal"></a>
-                <a class="register" href="" rel="tooltip" data_placement="bottom"></a>
+                <a class="register" href="logup.html" rel="tooltip" data_placement="bottom" data-toggle="modal"
+                   data-target="#myModal"></a>
             </div>
         </div>
     </div>
