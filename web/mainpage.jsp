@@ -31,26 +31,31 @@
                     <span class="red">.</span></h1>
             </div>
             <div class="links span8">
-                <a class="login" href="login.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
+                <a><%=session.getAttribute("username")%>
+                </a>
+                <a class="car" href="cart.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
-                <a class="register" href="logup.jsp" rel="tooltip" data_placement="bottom" data-toggle="modal"
+                <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
             </div>
         </div>
     </div>
-</div> <%--header--%>
+</div>
+<%--header--%>
 
 <div class="row"> <%--下方左右div控制--%>
     <div class="col-md-3"> <%--左侧菜单div控制--%>
         <ul class="nav nav-list" id="categorylist">
         </ul>
-    </div><%--左侧菜单div控制--%>
+    </div>
+    <%--左侧菜单div控制--%>
 
     <div class="col-md-9" id="book"><%--右侧书本div控制--%>
 
     </div>
     <%--右侧书本div控制--%>
-</div><%--下方左右div控制--%>
+</div>
+<%--下方左右div控制--%>
 
 <script language="JavaScript">
     function showCategory() {
@@ -96,8 +101,12 @@
         }
         xmlHttp.send();
     }
+
+    function addcart() {
+
+    }
 </script>
-<script src="js/jquery.min.js" ></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/commons.js"></script>
 </body>

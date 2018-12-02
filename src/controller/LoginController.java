@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -26,8 +27,9 @@ public class LoginController extends HttpServlet {
         String phone = request.getParameter("phone");
         boolean status = userService.login(username, pwd);
         if (status) {
-            System.out.print("登录成功!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);//这里不知道往哪个页面跳转
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            response.sendRedirect("/mainpage.jsp");
         } else {
             System.out.print("登录失败");
             response.sendRedirect("/login.jsp");
