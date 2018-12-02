@@ -11,4 +11,7 @@ public class BookService {
     public List<Book> getBookByCategoryID(int id) {
         return book.getBookByCategory(id);
     }
+    public boolean addBook(String bookname,String author,String price,String image,String remark) {
+        return book.addBook(bookname,author,price,image,remark);
+    }
 }
