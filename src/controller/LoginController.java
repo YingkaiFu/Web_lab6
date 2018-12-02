@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
         boolean status = userService.login(username, pwd);
         if (status) {
             System.out.print("登录成功!");
-            request.getRequestDispatcher("/main.jsp").forward(request, response);//这里不知道往哪个页面跳转
+            response.sendRedirect("/main.jsp");
         } else {
             System.out.print("登录失败");
             response.sendRedirect("/login.jsp");
