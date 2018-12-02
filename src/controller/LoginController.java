@@ -1,6 +1,7 @@
 package controller;
 
 import service.UserService;
+import vo.Cart;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +26,14 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
+        int count = 0;
+        Cart cart = new Cart();
         boolean status = userService.login(username, pwd);
         if (status) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
+            session.setAttribute("count", count);
+            session.setAttribute("cart", cart);
             response.sendRedirect("/mainpage.jsp");
         } else {
             response.setCharacterEncoding("gb2312");

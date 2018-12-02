@@ -33,8 +33,6 @@ public class UserDaoImpl implements UserDao {
         return status;
     }
 
-
-
     @Override
     public boolean logup(String id, String password, String phone, String tel, String email, String add) {
         boolean status = false;

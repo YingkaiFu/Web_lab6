@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface BookDao {
     public List<Book> getBookByCategory(int category_id);
+
+    public Book getBookById(int id);
 }
