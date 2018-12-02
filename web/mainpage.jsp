@@ -35,6 +35,7 @@
                 </a>
                 <a class="car" href="cart.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
+                <span id="count"><%=session.getAttribute("count")%></span>
                 <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
             </div>
@@ -72,7 +73,7 @@
                 }
                 document.getElementById("categorylist").innerHTML = listHtml;
             }
-        }
+        };
         xmlHttp.send();
     }
 
@@ -92,19 +93,38 @@
                     listbook += `<div class="col-sm-9 col-md-3"><div class="thumbnail" ><img src="images/book.jpg"><div class="caption">  <h4>`
                         + bookname +
                         `</h4><p>` + desc +
-                        `</p><p><a href="cart.jsp" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">查看详情` +
+                        `</p><p><a href="javascript:add(` + obj[i].id + `)" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">查看详情` +
                         `</a></p></div></div> </div>`;
 
                 }
                 document.getElementById("book").innerHTML = listbook;
             }
-        }
+        };
         xmlHttp.send();
     }
 
-    function addcart() {
-
+    function add(bookid) {
+        xmlHttp.open("GET", "getBookByID?id=" + bookid, true);
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var data = xmlHttp.responseText;
+                var obj = JSON.parse(data);
+                document.getElementById("count").innerHTML = obj.length;
+            }
+        };
+        xmlHttp.send();
     }
+
+    // function count() {
+    //     xmlHttp.open("GET", "count", true);
+    //     xmlHttp.onreadystatechange = function () {
+    //         if (xmlHttp.readyState == 4) {
+    //             var data = xmlHttp.responseText;
+    //
+    //         }
+    //     };
+    //     xmlHttp.send();
+    // }
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
