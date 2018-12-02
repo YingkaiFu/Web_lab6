@@ -24,7 +24,6 @@ public class LogupController extends HttpServlet {
         System.out.print(username);
         System.out.print(pwd);
         boolean status = userService.logup(username, pwd, phone, tel, email, add);
-        response.setCharacterEncoding("gb2312");
         request.setAttribute("status", status);
         if (status) {
             System.out.print("注册成功!");
