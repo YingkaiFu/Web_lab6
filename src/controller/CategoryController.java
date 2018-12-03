@@ -24,7 +24,6 @@ public class CategoryController extends javax.servlet.http.HttpServlet {
         List<Category> list = categoryService.findAll();
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(list);
-        System.out.println(jsonStr);
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.write(jsonStr);
