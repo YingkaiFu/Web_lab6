@@ -10,6 +10,7 @@
 <head>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>网上书店</title>
 </head>
 <body onload="initAJAX();showCategory()">
