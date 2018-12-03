@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/LogupController")
 public class LogupController extends HttpServlet {
@@ -25,13 +26,22 @@ public class LogupController extends HttpServlet {
         System.out.print(pwd);
         boolean status = userService.logup(username, pwd, phone, tel, email, add);
         request.setAttribute("status", status);
-        if (status) {
-            System.out.print("注册成功!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-        } else {
-            System.out.print("注册失败");
-            request.getRequestDispatcher("/logup.jsp").forward(request, response);
+        response.setCharacterEncoding("gb2312");
+
+        PrintWriter out = response.getWriter();
+        if (username.isEmpty()|| pwd.isEmpty()){
+            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('用户名与密码不为空');");
+        } else{
+
+            if (status) {
+                out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册成功');");
+            } else {
+                out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册失败');");
+            }
         }
+        out.print("location.href='/login.jsp';");
+        out.print("</script>");
+
 
     }
 
