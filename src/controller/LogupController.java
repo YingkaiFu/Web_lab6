@@ -31,15 +31,17 @@ public class LogupController extends HttpServlet {
         PrintWriter out = response.getWriter();
         if (username.isEmpty()|| pwd.isEmpty()){
             out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('用户名与密码不为空');");
+            out.print("location.href='/logup.jsp';");
         } else{
 
             if (status) {
                 out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册成功');");
+                out.print("location.href='/login.jsp';");
             } else {
                 out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册失败');");
+                out.print("location.href='/logup.jsp';");
             }
         }
-        out.print("location.href='/login.jsp';");
         out.print("</script>");
 
 
