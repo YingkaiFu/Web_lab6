@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <title>注册界面</title>
 </head>
 <body>
 <div class="modal-title">

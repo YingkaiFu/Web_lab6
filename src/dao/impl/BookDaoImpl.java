@@ -76,5 +76,40 @@ public class BookDaoImpl implements BookDao {
         return book;
     }
 
+    @Override
+    public boolean addBook(String bookname, String author, String price, String image, String remark) {
+
+        boolean status = false;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select name from book where name = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, bookname);
+            rs = preparedStatement.executeQuery();
+            if (!rs.next()) {
+                sql = "INSERT into book(name,author,price,image,description) values (?,?,?,?,?)";
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, bookname);
+                preparedStatement.setString(2, author);
+                preparedStatement.setString(3, price);
+                preparedStatement.setString(4, image);
+                preparedStatement.setString(5, remark);
+                int i = preparedStatement.executeUpdate();
+                if (i > 0) {
+                    status = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeConnection(connection);
+        }
+        return status;
+
+    }
+
 //    其他方法
 }

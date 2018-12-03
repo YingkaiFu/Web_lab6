@@ -5,6 +5,7 @@
     <meta charset="GB2312">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <title>登录界面</title>
 </head>
 <body>
 <div class="modal-title">

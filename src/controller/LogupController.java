@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/LogupController")
 public class LogupController extends HttpServlet {
@@ -25,12 +26,17 @@ public class LogupController extends HttpServlet {
         System.out.print(pwd);
         boolean status = userService.logup(username, pwd, phone, tel, email, add);
         request.setAttribute("status", status);
+        response.setCharacterEncoding("gb2312");
         if (status) {
-            System.out.print("注册成功!");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            PrintWriter out = response.getWriter();
+            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册成功');");
+            out.print("location.href='/login.jsp';");
+            out.print("</script>");
         } else {
-            System.out.print("注册失败");
-            request.getRequestDispatcher("/logup.jsp").forward(request, response);
+            PrintWriter out = response.getWriter();
+            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册失败');");
+            out.print("location.href='/logup.jsp';");
+            out.print("</script>");
         }
 
     }
