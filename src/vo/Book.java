@@ -61,6 +61,15 @@ public class Book {
         return category_id;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
     public void setCategory_id(String category_id) {
         this.category_id = category_id;
     }

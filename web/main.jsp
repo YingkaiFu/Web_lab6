@@ -87,7 +87,7 @@
                     listbook += `<div class="col-sm-9 col-md-3"><div class="thumbnail" ><img src="images/book.jpg"><div class="caption">  <h4>`
                         + bookname +
                         `</h4><p>` + desc +
-                        `</p><p><a href="cart.jsp" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">查看详情` +
+                        `</p><p><a href="login.jsp" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">查看详情` +
                         `</a></p></div></div> </div>`;
 
                 }
