@@ -111,6 +111,8 @@ public class OrderDaoImpl implements OrderDao {
         Connection conn = null;
         PreparedStatement ps;
         ResultSet rs;
+        java.sql.Date sqlDate=new java.sql.Date(ordertime.getTime());
+
         try{
             conn = JDBCUtil.getConnection();
             String sql = "SELECT price FROM 'order' WHERE price = ?";
@@ -120,7 +122,7 @@ public class OrderDaoImpl implements OrderDao {
             if(!rs.next()){
                 sql = "INSERT INTO 'order'(id,ordertime,price,state,user_id) values(?,?,?,?,?)";
                 ps = conn.prepareStatement(sql);
-                ps.setDate(1, (java.sql.Date) ordertime);
+                ps.setDate(1, sqlDate);
                 ps.setDouble(2,price);
                 ps.setBoolean(3,state);
                 ps.setInt(4,user_id);
