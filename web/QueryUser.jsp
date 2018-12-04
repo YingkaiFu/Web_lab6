@@ -47,7 +47,7 @@
 </div>
 <%--header--%>
 
-<div style="height:300px">
+<div>
     <table id = "user">
         <%--<%--%>
 
@@ -55,6 +55,9 @@
         <%--}--%>
         <%--%>--%>
     </table>
+</div>
+<div style="text-align: right">
+    <a style="margin-top: 10px" href="adminpage.jsp" class="btn btn-danger" role="button">返回</a>
 </div>
 <script language="JavaScript">
     function showUser() {
@@ -72,7 +75,6 @@
                     var email=obj[i].email;
                     var address=obj[i].address;
                     listuser += `<tr>
-                    <th>
                     <td>`+id + `</td>
                     <td>`+username + `</td>
                     <td>`+phone + `</td>
