@@ -28,7 +28,7 @@ public class AddOrderController extends HttpServlet {
         int user_id = Integer.parseInt(user_id_s);
 
         boolean status = orderService.addOrder(ordertime, price, state, user_id);
-
+        System.out.println(status);
         request.setAttribute("status", status);
         if (status) {
             System.out.print("下单成功!");

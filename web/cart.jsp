@@ -76,7 +76,7 @@
         </table>
     </div>
     <div style="text-align: right">
-        <a style="margin-top: 10px" href="SubmitController" class="btn btn-danger" role="button">提交订单</a>
+        <a style="margin-top: 10px" href="AddOrderController" class="btn btn-danger" role="button">提交订单</a>
     </div>
 </body>
 <script language="JavaScript">

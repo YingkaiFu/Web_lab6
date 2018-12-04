@@ -1,6 +1,5 @@
 package dao.impl;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import dao.JDBCUtil;
 import dao.OrderDao;
 import org.sqlite.JDBC;
