@@ -76,7 +76,7 @@
         </table>
     </div>
     <div style="text-align: right">
-        <a style="margin-top: 10px" href="SubmitController" class="btn btn-danger" role="button">提交</a>
+        <a style="margin-top: 10px" href="SubmitController" class="btn btn-danger" role="button">提交订单</a>
     </div>
 </body>
 <script language="JavaScript">
@@ -106,6 +106,10 @@
         };
         xmlHttp.send();
     };
+
+    function UpdateCount() {
+
+    }
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

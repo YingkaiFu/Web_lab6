@@ -34,6 +34,8 @@
             <div class="links span8">
                 <a><%=session.getAttribute("username")%>
                 </a>
+                <a class="home" href="home.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
+                   data-target="#myModal"></a>
                 <a class="car" href="cart.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
                 <span id="count"><%=session.getAttribute("count")%></span>

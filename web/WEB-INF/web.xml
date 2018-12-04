@@ -8,15 +8,15 @@
         <servlet-class>controller.CategoryController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CartController</servlet-name>
-        <servlet-class>controller.CartController</servlet-class>
+        <servlet-name>GetCartController</servlet-name>
+        <servlet-class>controller.GetCartController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CartController</servlet-name>
+        <servlet-name>GetCartController</servlet-name>
         <url-pattern>/getCart</url-pattern>
     </servlet-mapping>
     <servlet>

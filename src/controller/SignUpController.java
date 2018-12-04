@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/LogupController")
-public class LogupController extends HttpServlet {
+@WebServlet("/SignUpController")
+public class SignUpController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         UserService userService = new UserService();
@@ -31,7 +31,7 @@ public class LogupController extends HttpServlet {
         PrintWriter out = response.getWriter();
         if (username.isEmpty()|| pwd.isEmpty()){
             out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('用户名与密码不为空');");
-            out.print("location.href='/logup.jsp';");
+            out.print("location.href='/signUp.jsp';");
         } else{
 
             if (status) {
@@ -39,7 +39,7 @@ public class LogupController extends HttpServlet {
                 out.print("location.href='/login.jsp';");
             } else {
                 out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('注册失败');");
-                out.print("location.href='/logup.jsp';");
+                out.print("location.href='/signUp.jsp';");
             }
         }
         out.print("</script>");
