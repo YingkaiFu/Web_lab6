@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-public class CartController extends HttpServlet {
+public class GetCartController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
