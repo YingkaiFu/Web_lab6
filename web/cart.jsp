@@ -76,6 +76,7 @@
         </table>
     </div>
     <div style="text-align: right">
+        <span  style="margin-top: 10px">总价格为：</span>
         <a style="margin-top: 10px" href="AddOrderController" class="btn btn-danger" role="button">提交订单</a>
     </div>
 </body>
@@ -87,21 +88,25 @@
                 var data = xmlHttp.responseText;
                 var obj = JSON.parse(data);
                 var listbook = '';
+                var total=0.00;
                 for (var i in obj) {
                     var bookname = obj[i].name;
                     var price = obj[i].price;
                     var bookSrc = obj[i].image;
+                    var number = obj[i].number;
+                    total+= parseFloat(price)*parseInt(number);
                     listbook += `<tr>
                     <th>
                     <td><img src="`+bookSrc+`" width="80" height="80"></td>
                         <td class="style02">`+bookname + `</td>
                         <th class="style03">
                         <td>`+price+`</td>
-                        <td>`+"1"+`</td>
+                        <td>`+number+`</td>
                         <td>`+ `<a href="javascript:delete(` + obj[i].id + `)" class="btn btn-primary" role="button">删除</a>`+`</td>
                         </tr>`;
                 }
                 document.getElementById("cart").innerHTML = listbook;
+                document.getElementById("total").innerHTML = total.toFixed(2);
             }
         };
         xmlHttp.send();
