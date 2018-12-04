@@ -19,6 +19,14 @@
         <servlet-name>GetCartController</servlet-name>
         <url-pattern>/getCart</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>QueryUserController</servlet-name>
+        <servlet-class>controller.QueryUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryUserController</servlet-name>
+        <url-pattern>/getUser</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>CategoryController</welcome-file>
     </welcome-file-list>

@@ -5,17 +5,18 @@ import service.BookService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/AddBookController")
-public class AddBookController {
+public class AddBookController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BookService bookService = new BookService();
         String bookname = request.getParameter("bookname");
         String author = request.getParameter("author");
-        String price = request.getParameter("price");
+        int price = Integer.parseInt(request.getParameter("price"));
         String image = request.getParameter("image");
         String remark = request.getParameter("remark");
 

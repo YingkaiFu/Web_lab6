@@ -32,10 +32,7 @@
                     <span class="red">.</span></h1>
             </div>
             <div class="links span8">
-                <a><%=session.getAttribute("username")%>
-                </a>
-                <a class="car" href="cart.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
-                   data-target="#myModal"></a>
+
                 <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
             </div>
@@ -48,14 +45,14 @@
     <h1 class="text-center">登录</h1>
 </div>
 <div class="modal-body">
-    <form class="form-group" action="LoginController" method="post">
+    <form class="form-group" action="AddBookController" method="post">
         <div class="form-group">
             <label>书名</label>
             <input name="bookname" class="form-control" type="text" placeholder="请输入书名">
         </div>
         <div class="form-group">
             <label>作者</label>
-            <input name="author" class="form-control" type="password" placeholder="请输入作者">
+            <input name="author" class="form-control" type="text" placeholder="请输入作者">
         </div>
         <div class="form-group">
             <label>价格</label>

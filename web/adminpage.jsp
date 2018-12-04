@@ -32,10 +32,6 @@
                     <span class="red">.</span></h1>
             </div>
             <div class="links span8">
-                <a><%=session.getAttribute("username")%>
-                </a>
-                <a class="car" href="cart.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
-                   data-target="#myModal"></a>
                 <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
             </div>
@@ -46,12 +42,14 @@
 
 <div style="text-align: center">
     <p style="font-size: 20px;">欢迎您，admin管理员</p><br>
-    <form action="AdminController" method="post">
-        <input type="submit" name="AddBook" value="书籍信息录入" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
-        <input type="submit" name="QueryInit" value="查询初始订单" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
-        <input type="submit" name="QueryFinish" value="查询已完成订单" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
-        <input type="submit" name="QueryUser" value="查询用户信息" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
-    </form>
+    <input type="button" name="AddBook" value="书籍信息录入" onclick="window.location='AddBook.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+    <input type="button" name="QueryInit" value="查询出示订单" onclick="window.location='QueryInit.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+    <input type="button" name="QueryFinish" value="查询已完成订单" onclick="window.location='QueryFinish.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+
+
+        <input type="button" name="QueryUser" value="查询用户信息"  onclick="window.location='QueryUser.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+
+
 </div>
 </body>
 </html>

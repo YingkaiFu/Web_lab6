@@ -77,7 +77,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public boolean addBook(String bookname, String author, String price, String image, String remark) {
+    public boolean addBook(String bookname, String author, int price, String image, String remark) {
 
         boolean status = false;
         Connection connection = null;
@@ -94,7 +94,7 @@ public class BookDaoImpl implements BookDao {
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, bookname);
                 preparedStatement.setString(2, author);
-                preparedStatement.setString(3, price);
+                preparedStatement.setInt(3, price);
                 preparedStatement.setString(4, image);
                 preparedStatement.setString(5, remark);
                 int i = preparedStatement.executeUpdate();
