@@ -20,6 +20,14 @@
         <url-pattern>/getCart</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>GetOrderByAdminController</servlet-name>
+        <servlet-class>controller.GetOrderByAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOrderByAdminController</servlet-name>
+        <url-pattern>/getOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>QueryUserController</servlet-name>
         <servlet-class>controller.QueryUserController</servlet-class>
     </servlet>

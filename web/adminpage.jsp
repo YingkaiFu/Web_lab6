@@ -43,7 +43,7 @@
 <div style="text-align: center">
     <p style="font-size: 20px;">欢迎您，admin管理员</p><br>
     <input type="button" name="AddBook" value="书籍信息录入" onclick="window.location='AddBook.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
-    <input type="button" name="QueryInit" value="查询出示订单" onclick="window.location='QueryInit.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+    <input type="button" name="QueryInit" value="查询初始订单" onclick="window.location='QueryInit.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
     <input type="button" name="QueryFinish" value="查询已完成订单" onclick="window.location='QueryFinish.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
 
 

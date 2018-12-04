@@ -66,7 +66,7 @@
                 <%--String author = book.getAuthor();--%>
                 <%--String image = book.getImage();--%>
     <%--%>--%>
-    <div style="height:300px">
+    <div >
         <table id = "cart">
         <%--<%--%>
 

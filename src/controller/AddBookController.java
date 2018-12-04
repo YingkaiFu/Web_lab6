@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/AddBookController")
 public class AddBookController extends HttpServlet {
@@ -24,11 +25,17 @@ public class AddBookController extends HttpServlet {
         boolean status = bookService.addBook(bookname,author,price,image,remark);
         request.setAttribute("status", status);
         if (status) {
-            System.out.print("录入成功!");
-            request.getRequestDispatcher("/adminpage.jsp").forward(request, response);
+            response.setCharacterEncoding("gb2312");
+            PrintWriter out = response.getWriter();
+            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('录入成功');");
+            out.print("location.href='/adminpage.jsp';");
+            out.print("</script>");
         } else {
-            System.out.print("录入失败");
-            request.getRequestDispatcher("/adminpage.jsp").forward(request, response);
+            response.setCharacterEncoding("gb2312");
+            PrintWriter out = response.getWriter();
+            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('录入失败');");
+            out.print("location.href='/adminpage.jsp';");
+            out.print("</script>");
         }
     }
 
