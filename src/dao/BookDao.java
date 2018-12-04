@@ -5,8 +5,8 @@ import vo.Book;
 import java.util.List;
 
 public interface BookDao {
-    public List<Book> getBookByCategory(int category_id);
+    List<Book> getBookByCategory(int category_id);
 
-    public Book getBookById(int id);
-    public boolean addBook(String bookname, String author, String price, String image, String remark);
+    Book getBookById(int id);
+    boolean addBook(String bookname, String author, String price, String image, String remark);
 }
