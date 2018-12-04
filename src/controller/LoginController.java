@@ -26,21 +26,26 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("id");
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
-        int count = 0;
-        Cart cart = new Cart();
-        boolean status = userService.login(username, pwd);
-        if (status) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("count", count);
-            session.setAttribute("cart", cart);
-            response.sendRedirect("/mainpage.jsp");
-        } else {
-            response.setCharacterEncoding("gb2312");
-            PrintWriter out = response.getWriter();
-            out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('登录失败');");
-            out.print("location.href='/login.jsp';");
-            out.print("</script>");
+        if(username.equals("admin")&&pwd.equals("admin")){
+            response.sendRedirect("/adminpage.jsp");
+        }
+        else {
+            int count = 0;
+            Cart cart = new Cart();
+            boolean status = userService.login(username, pwd);
+            if (status) {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                session.setAttribute("count", count);
+                session.setAttribute("cart", cart);
+                response.sendRedirect("/mainpage.jsp");
+            } else {
+                response.setCharacterEncoding("gb2312");
+                PrintWriter out = response.getWriter();
+                out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('登录失败');");
+                out.print("location.href='/login.jsp';");
+                out.print("</script>");
+            }
         }
     }
 
