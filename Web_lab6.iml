@@ -19,34 +19,45 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
-    <orderEntry type="library" name="sqlite-jdbc-3.25.2" level="project" />
-    <orderEntry type="module-library">
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../web/实验/实验七  JSP+JavaBean+Servlet开发/jackson-annotations-2.9.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-annotations-2.9.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../web/实验/实验七  JSP+JavaBean+Servlet开发/jackson-core-2.9.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-core-2.9.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../web/实验/实验七  JSP+JavaBean+Servlet开发/jackson-databind-2.9.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-databind-2.9.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/sqlite-jdbc-3.25.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jackson-core-2.9.7" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.9.7" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.9.7" level="project" />
   </component>
 </module>
