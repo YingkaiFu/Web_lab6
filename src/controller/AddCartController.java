@@ -23,8 +23,11 @@ public class AddCartController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BookService bookService = new BookService();
         HttpSession session = request.getSession(false);
+
+        double price = (double)(session.getAttribute("price"));
+        BookService bookService = new BookService();
+
         int count = (int) session.getAttribute("count");
         int id = Integer.parseInt(request.getParameter("id"));
         List<CartItem> cart = ((Cart) session.getAttribute("cart")).getBookList();
@@ -32,6 +35,8 @@ public class AddCartController extends HttpServlet {
         CartItem temp = new CartItem(book.getId(), book.getName(),
                 book.getAuthor(), book.getPrice(), book.getImage(),
                 book.getDescription(), book.getCategory_id(), 1);
+        price = price+book.getPrice();
+        session.setAttribute("price",price);
         if(cart.isEmpty()){
             cart.add(temp);
         }
