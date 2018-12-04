@@ -90,10 +90,10 @@
                 for (var i in obj) {
                     var bookname = obj[i].name;
                     var price = obj[i].price;
-                    var image = obj[i].image;
+                    var bookSrc = obj[i].image;
                     listbook += `<tr>
                     <th>
-                    <td><img src="images/book.jpg" width="80" height="80"></td>
+                    <td><img src="`+bookSrc+`" width="80" height="80"></td>
                         <td class="style02">`+bookname + `</td>
                         <th class="style03">
                         <td>`+price+`</td>
