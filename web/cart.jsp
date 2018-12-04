@@ -1,4 +1,6 @@
-<%--
+<%@ page import="vo.Cart" %>
+<%@ page import="vo.Book" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Yingkai
   Date: 2018/12/2
@@ -37,19 +39,45 @@
         </div>
     </div>
 </div>
-<div id="book"></div>
-<%--<div class="row"> &lt;%&ndash;下方左右div控制&ndash;%&gt;--%>
-<%--<div class="col-md-3"> &lt;%&ndash;左侧菜单div控制&ndash;%&gt;--%>
-<%--<ul class="nav nav-list" id="categorylist">--%>
-<%--</ul>--%>
-<%--</div>--%>
-<%--&lt;%&ndash;左侧菜单div控制&ndash;%&gt;--%>
+<div style="width: 960px;margin: 10px auto;">
+    <div style="width: 960px">
+        <table>
+            <tr>
+                <th>
+                <td class="style01">选择</td>
+                <th>
+                <td class="style02">名称</td>
+                <th class="style03">
+                <td>单价</td>
+                <td>数量</td>
+                <td>操作</td>
+                </th>
+            </tr>
+            <tr></tr>
+        </table>
+    </div>
+    <hr>
+    <%--<%--%>
+        <%--List<Book> cart =((Cart) session.getAttribute("cart")).getBookList();--%>
+        <%--if(cart!=null) {--%>
+            <%--for (Book book : cart) {--%>
+                <%--double price = book.getPrice();--%>
+                <%--String name = book.getName();--%>
+                <%--String author = book.getAuthor();--%>
+                <%--String image = book.getImage();--%>
+    <%--%>--%>
+    <div style="height:300px">
+        <table id = "cart">
+        <%--<%--%>
 
-<%--<div class="col-md-9" id="book">&lt;%&ndash;右侧书本div控制&ndash;%&gt;--%>
-
-<%--</div>--%>
-<%--&lt;%&ndash;右侧书本div控制&ndash;%&gt;--%>
-<%--</div>--%>
+                <%--}--%>
+            <%--}--%>
+        <%--%>--%>
+        </table>
+    </div>
+    <div style="text-align: right">
+        <a style="margin-top: 10px" href="SubmitController" class="btn btn-danger" role="button">提交</a>
+    </div>
 </body>
 <script language="JavaScript">
     function Update() {
@@ -61,21 +89,25 @@
                 var listbook = '';
                 for (var i in obj) {
                     var bookname = obj[i].name;
-                    var desc = obj[i].description;
-                    if (desc.length > 20) {
-                        desc = desc.substring(0, 17)
-                    }
-                    listbook += `<div class="col-sm-9 col-md-3"><div class="thumbnail" ><img src="images/book.jpg"><div class="caption">  <h4>`
-                        + bookname +
-                        `</h4><p>` + desc +
-                        `</p><p><a href="javascript:add(` + obj[i].id + `)" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">查看详情` +
-                        `</a></p></div></div> </div>`;
-
+                    var price = obj[i].price;
+                    var image = obj[i].image;
+                    listbook += `<tr>
+                    <th>
+                    <td><img src="images/book.jpg" width="80" height="80"></td>
+                        <td class="style02">`+bookname + `</td>
+                        <th class="style03">
+                        <td>`+price+`</td>
+                        <td>`+"1"+`</td>
+                        <td>`+ `<a href="javascript:delete(` + obj[i].id + `)" class="btn btn-primary" role="button">删除</a>`+`</td>
+                        </tr>`;
                 }
-                document.getElementById("book").innerHTML = listbook;
+                document.getElementById("cart").innerHTML = listbook;
             }
         };
         xmlHttp.send();
     };
 </script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/commons.js"></script>
 </html>
