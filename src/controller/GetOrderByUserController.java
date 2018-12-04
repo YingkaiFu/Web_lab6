@@ -1,5 +1,6 @@
 package controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.OrderDao;
 import dao.impl.OrderDaoImpl;
@@ -20,8 +21,15 @@ public class GetOrderByUserController extends HttpServlet {
 
     }
     //by User
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-//        TODO
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       /* HttpSession session = request.getSession(false);
+        OrderService orderService = new OrderService();
+        List<Order> orderList = orderService.getOrderByUserId(userId);
+        response.setCharacterEncoding("UTF-8");
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonStr = mapper.writeValueAsString(orderList);
+        PrintWriter out = response.getWriter();
+        out.write(jsonStr);*/
 
     }
 }

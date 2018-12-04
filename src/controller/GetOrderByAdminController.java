@@ -21,7 +21,7 @@ public class GetOrderByAdminController extends HttpServlet {
     }
     //by Admin
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession(false);
+
         OrderService orderService = new OrderService();
         List<Order> orderList = orderService.queryAll();
         response.setCharacterEncoding("UTF-8");
