@@ -8,12 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <title>网上书店</title>
 
+    <title>网上书店</title>
+    <style>
+        th, tr, td, table {
+            border: 1px solid #000000;
+        }
+    </style>
 </head>
-<body onload="initAJAX();showCategory()">
+<body onload="initAJAX();showOrder()">
+
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -40,6 +47,49 @@
 </div>
 <%--header--%>
 
+<div>
+    <table id = "order">
+        <%--<%--%>
 
+        <%--}--%>
+        <%--}--%>
+        <%--%>--%>
+    </table>
+</div>
+<div style="text-align: right">
+    <a style="margin-top: 10px" href="adminpage.jsp" class="btn btn-danger" role="button">返回</a>
+</div>
+<script language="JavaScript">
+    function showOrder() {
+        xmlHttp.open("GET", "/getOrder", true);
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var data = xmlHttp.responseText;
+                var obj = JSON.parse(data);
+                var listorder = '';
+                for (var i in obj) {
+                    var id = obj[i].id;
+                    var ordertime = obj[i].ordertime;
+                    var price = obj[i].price;
+                    var state= obj[i].state;
+                    var user_id=obj[i].user_id;
+
+                    listorder += `<tr>
+                    <td>`+id + `</td>
+                    <td>`+ordertime + `</td>
+                    <td>`+price + `</td>
+                        <td >`+state + `</td>
+                        <td>`+user_id+`</td>
+                        </tr>`;
+                }
+                document.getElementById("order").innerHTML = listorder;
+            }
+        };
+        xmlHttp.send();
+    };
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/commons.js"></script>
 </body>
 </html>
