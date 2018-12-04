@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    List<CartItem> bookList = new ArrayList<>();
+    private List<CartItem> bookList;
+
+    public Cart() {
+        bookList = new ArrayList<>();
+    }
 
     public List<CartItem> getBookList() {
         return bookList;
