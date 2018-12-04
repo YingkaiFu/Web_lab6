@@ -9,4 +9,6 @@ public interface UserDao {
     boolean logup(String username, String pwd, String phone, String tel, String email, String add);
 
     ArrayList<Map> queryAll();
+
+    int getIdByName(String name);
 }
