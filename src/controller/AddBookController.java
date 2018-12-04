@@ -16,7 +16,7 @@ public class AddBookController extends HttpServlet {
         BookService bookService = new BookService();
         String bookname = request.getParameter("bookname");
         String author = request.getParameter("author");
-        String price = request.getParameter("price");
+        int price = Integer.parseInt(request.getParameter("price"));
         String image = request.getParameter("image");
         String remark = request.getParameter("remark");
 

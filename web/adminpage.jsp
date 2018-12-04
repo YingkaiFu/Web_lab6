@@ -47,7 +47,7 @@
     <input type="button" name="QueryFinish" value="查询已完成订单" onclick="window.location='QueryFinish.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
 
 
-        <input type="button" name="QueryUser" value="查询用户信息"  onclick="window.location='QueryUserController'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
+        <input type="button" name="QueryUser" value="查询用户信息"  onclick="window.location='QueryUser.jsp'" style="height:45px;width:300px;display:inline-block;font-size: 20px;"><br><br>
 
 
 </div>

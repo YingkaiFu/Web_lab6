@@ -2,8 +2,10 @@ package service;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import vo.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class UserService {
@@ -17,7 +19,7 @@ public class UserService {
         return userdao.logup(id, password, phone, tel, email, add);
     }
 
-    public ArrayList<Map> quaryUsers(){
+    public List<User> quaryUsers(){
         return userdao.queryAll();
     }
 }

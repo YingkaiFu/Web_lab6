@@ -2,10 +2,12 @@ package dao.impl;
 
 import dao.JDBCUtil;
 import dao.UserDao;
+import vo.User;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserDaoImpl implements UserDao {
@@ -68,9 +70,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public ArrayList<Map> queryAll(){
+    public List<User> queryAll(){
 
-        ArrayList<Map> list=new ArrayList<>();
+        List<User> list=new ArrayList<>();
         Connection connection = null;
         Statement statement = null;
         ResultSet rs = null;
@@ -80,22 +82,15 @@ public class UserDaoImpl implements UserDao {
             statement = connection.createStatement();
             rs = statement.executeQuery(sql);
             while (rs.next()){
-                String id=rs.getString("id");
-                String username=rs.getString("username");
-                String phone=rs.getString("phone");
-                String cellphone=rs.getString("cellphone");
-                String email=rs.getString("email");
-                String address=rs.getString("address");
+                User user=new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPhone(rs.getString("phone"));
+                user.setCellphone(rs.getString("cellphone"));
+                user.setEmail(rs.getString("email"));
+                user.setAddress(rs.getString("address"));
 
-                Map map = new HashMap();
-
-                map.put("id",id);
-                map.put("username", username);
-                map.put("phone",phone);
-                map.put("cellphone",cellphone);
-                map.put("email",email);
-                map.put("address",address);
-                list.add(map);//在将map集合对象存入list集合
+                list.add(user);
             }
         } catch (SQLException e) {
             e.printStackTrace();

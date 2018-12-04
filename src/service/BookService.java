@@ -15,7 +15,7 @@ public class BookService {
     public Book getBookById(int id) {
         return book.getBookById(id);
     }
-    public boolean addBook(String bookname,String author,String price,String image,String remark) {
+    public boolean addBook(String bookname,String author,int price,String image,String remark) {
         return book.addBook(bookname,author,price,image,remark);
     }
 }
