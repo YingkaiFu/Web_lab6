@@ -102,7 +102,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int getIdByName(String name) {
-        int id=0;
+        int id=-1;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -112,7 +112,7 @@ public class UserDaoImpl implements UserDao {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             rs = preparedStatement.executeQuery();
-            if (!rs.next()) {
+            if (rs.next()) {
                 id = rs.getInt("id");
             }
         } catch (SQLException e) {
