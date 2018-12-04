@@ -11,7 +11,7 @@
     <h1 class="text-center">注册</h1>
 </div>
 <div class="modal-body">
-    <form class="form-group" action="LogupController" method="post">
+    <form class="form-group" action="SignUpController" method="post">
         <div class="form-group">
             <label id="username">用户名</label>
             <input name="id" class="form-control" type="text" placeholder="请输入用户名">

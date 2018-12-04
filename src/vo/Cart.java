@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    List<Book> bookList = new ArrayList<>();
+    List<CartItem> bookList = new ArrayList<>();
 
-    public List<Book> getBookList() {
+    public List<CartItem> getBookList() {
         return bookList;
     }
 
-    public void setBookList(List<Book> bookList) {
+    public void setBookList(List<CartItem> bookList) {
         this.bookList = bookList;
     }
 
-    public void add(Book book) {
+    public void add(CartItem book) {
         bookList.add(book);
     }
 }

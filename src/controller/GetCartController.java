@@ -3,6 +3,7 @@ package controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import vo.Book;
 import vo.Cart;
+import vo.CartItem;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class GetCartController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        List<Book> cart = ((Cart) session.getAttribute("cart")).getBookList();
+        List<CartItem> cart = ((Cart) session.getAttribute("cart")).getBookList();
         response.setCharacterEncoding("UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(cart);

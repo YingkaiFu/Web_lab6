@@ -33,7 +33,7 @@
             <div class="links span8">
                 <a class="login" href="login.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
-                <a class="register" href="logup.jsp" rel="tooltip" data_placement="bottom" data-toggle="modal"
+                <a class="register" href="signUp.jsp" rel="tooltip" data_placement="bottom" data-toggle="modal"
                    data-target="#myModal"></a>
             </div>
         </div>
