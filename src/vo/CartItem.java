@@ -1,6 +1,6 @@
 package vo;
 
-public class Book {
+public class CartItem {
     private int id;
     private String name;
     private String author;
@@ -8,6 +8,32 @@ public class Book {
     private String image;
     private String description;
     private String category_id;
+    private int number;
+
+    public CartItem(int id, String name, String author, double price, String image, String description, String category_id, int number) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+        this.category_id = category_id;
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", category_id='" + category_id + '\'' +
+                ", number=" + number +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -61,16 +87,15 @@ public class Book {
         return category_id;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                '}';
-    }
-
     public void setCategory_id(String category_id) {
         this.category_id = category_id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }

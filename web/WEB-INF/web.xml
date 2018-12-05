@@ -7,8 +7,35 @@
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>controller.CategoryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetCartController</servlet-name>
+        <servlet-class>controller.GetCartController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCartController</servlet-name>
+        <url-pattern>/getCart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GetOrderByAdminController</servlet-name>
+        <servlet-class>controller.GetOrderByAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOrderByAdminController</servlet-name>
+        <url-pattern>/getOrder</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>QueryUserController</servlet-name>
+        <servlet-class>controller.QueryUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryUserController</servlet-name>
+        <url-pattern>/getUser</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>CategoryController</welcome-file>
+    </welcome-file-list>
 </web-app>

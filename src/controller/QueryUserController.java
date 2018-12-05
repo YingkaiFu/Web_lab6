@@ -2,7 +2,7 @@ package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import service.BookService;
-import vo.Book;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,33 +11,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@WebServlet("/getBookByCategoryID")
-public class BookController extends HttpServlet {
+
+public class QueryUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        BookService bookService = new BookService();
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        List<Book> bookList = bookService.getBookByCategoryID(id);
-//        request.setAttribute("books",bookList);
-//        request.getRequestDispatcher("/main.jsp").forward(request,response);
 
-
-        BookService bookService = new BookService();
-        int id = Integer.parseInt(request.getParameter("id"));
-        List<Book> bookList = bookService.getBookByCategoryID(id);
-//        request.setAttribute("books",bookList);
-//        request.getRequestDispatcher("/main.jsp").forward(request,response);
+        UserService userService=new UserService();
+        /*ArrayList<Map> users=userService.quaryUsers();
+        request.setAttribute("Users",users);
+        request.getRequestDispatcher("/QueryUser.jsp").forward(request,response);*/
+        List users=userService.quaryUsers();
         response.setCharacterEncoding("UTF-8");
         ObjectMapper mapper = new ObjectMapper();
-        String jsonStr = mapper.writeValueAsString(bookList);
+        String jsonStr = mapper.writeValueAsString(users);
         PrintWriter out = response.getWriter();
         out.write(jsonStr);
-
-
     }
 }

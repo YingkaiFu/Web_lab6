@@ -11,4 +11,11 @@ public class BookService {
     public List<Book> getBookByCategoryID(int id) {
         return book.getBookByCategory(id);
     }
+
+    public Book getBookById(int id) {
+        return book.getBookById(id);
+    }
+    public boolean addBook(String bookname,String author,int price,String image,String remark) {
+        return book.addBook(bookname,author,price,image,remark);
+    }
 }

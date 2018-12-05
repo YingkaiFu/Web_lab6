@@ -1,47 +1,58 @@
 package controller;
 
 import service.UserService;
-import vo.User;
+import vo.Cart;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        //获得request传来的参数
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        //封装到User类
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        //查询用户是否存在
-        UserService us = new UserService();
-        User userFlag = us.login(user);
-        //response反馈
-        if(userFlag != null) {
-            response.getWriter().println("User:" + username + "登录成功!");
-        }else {
-            response.getWriter().println("用户不存在或密码错误!");
-        }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
+        UserService userService = new UserService();
+        String username = request.getParameter("id");
+        System.out.println(username);
+        String pwd = request.getParameter("pwd");
+        String phone = request.getParameter("phone");
+        if (username.equals("admin") && pwd.equals("admin")) {
+            response.sendRedirect("/adminpage.jsp");
+        } else {
+            int count = 0;
+            double price = 0.00;
+            Cart cart = new Cart();
+            boolean status = userService.login(username, pwd);
 
+            int user_id = userService.getIdByName(username);
+            if (status) {
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                session.setAttribute("count", count);
+                session.setAttribute("cart", cart);
+                session.setAttribute("price", price);
+                session.setAttribute("state",false);
+                session.setAttribute("user_id",user_id);
+                response.sendRedirect("/mainpage.jsp");
+            } else {
+                response.setCharacterEncoding("gb2312");
+                PrintWriter out = response.getWriter();
+                out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('登录失败');");
+                out.print("location.href='/login.jsp';");
+                out.print("</script>");
+            }
+        }
     }
 
 
