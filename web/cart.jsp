@@ -77,6 +77,7 @@
     </div>
     <div style="text-align: right">
         <span  style="margin-top: 10px">总价格为：</span>
+        <span style="margin-top: 10px" id="total"></span>
         <a style="margin-top: 10px" href="AddOrderController" class="btn btn-danger" role="button">提交订单</a>
     </div>
 </body>
