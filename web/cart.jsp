@@ -17,7 +17,7 @@
 </head>
 <body onload="initAJAX();Update()" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-typo-title">欢迎来到我的书店</span>
+    <span class="mdui-typo-title">购物车</span>
     <div class="mdui-toolbar-spacer"></div>
     <a href="home.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
     <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车<%=session.getAttribute("count")%></a>

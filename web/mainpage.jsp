@@ -79,7 +79,7 @@
                     if (desc.length > 20) {
                         desc = desc.substring(0, 18)
                     }
-                    listbook += `<div class="mdui-col">
+                    listbook += `<div class="mdui-col" style="padding: 8px">
       <div class="mdui-card">
         <div class="mdui-card-media">
           <img src="` + bookSrc + `"/><div class="mdui-card-menu">
