@@ -45,6 +45,7 @@
         <span style="margin-top: 10px" id="total"></span>
         <a href="AddOrderController" class="mdui-btn mdui-ripple mdui-color-red">提交订单</a>
     </div>
+</div>
 </body>
 <script language="JavaScript">
     function Update() {
