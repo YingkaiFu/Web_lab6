@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
             throws IOException {
         UserService userService = new UserService();
         String username = request.getParameter("id");
-        System.out.println(username);
+        System.out.println("User name: "+username);
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
         if (username.equals("admin") && pwd.equals("admin")) {

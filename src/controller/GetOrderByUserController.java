@@ -22,6 +22,17 @@ public class GetOrderByUserController extends HttpServlet {
     //by User
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 //        TODO
-
+//        HttpSession session = request.getSession(false);
+//        OrderService orderService = new OrderService();
+//        List<Order> orderList = orderService.queryAll();
+//
+//
+//
+//        response.setCharacterEncoding("UTF-8");
+//        ObjectMapper mapper = new ObjectMapper();
+//        String jsonStr = mapper.writeValueAsString(orderList);
+//        PrintWriter out = response.getWriter();
+//        System.out.println(jsonStr);
+//        out.write(jsonStr);
     }
 }

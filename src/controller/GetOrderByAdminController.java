@@ -22,16 +22,9 @@ public class GetOrderByAdminController extends HttpServlet {
     }
     //by Admin
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession(false);
+
         OrderService orderService = new OrderService();
         List<Order> orderList = orderService.queryAll();
-
-        for(int i=0; i<orderList.size(); i++){
-            Order o = orderList.get(i);
-            System.out.println(o.getId());
-        }
-
-
         response.setCharacterEncoding("UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(orderList);
