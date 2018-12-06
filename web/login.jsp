@@ -29,11 +29,6 @@
             <button class="btn btn-danger" data-dismiss="modal">取消</button>
         </div>
     </form>
-    <%--<div style="margin-top: -48px;margin-left: 200px">--%>
-    <%--<form action="main.jsp" method="post">--%>
-    <%--<button class="btn btn-danger" data-dismiss="modal">取消</button>--%>
-    <%--</form>--%>
-    <%--</div>--%>
 </div>
 </body>
 </html>

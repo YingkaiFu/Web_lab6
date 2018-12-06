@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
                 response.setCharacterEncoding("gb2312");
                 PrintWriter out = response.getWriter();
                 out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('登录失败');");
-                out.print("location.href='/login.jsp';");
+                out.print("location.href='/main.jsp';");
                 out.print("</script>");
             }
         }
