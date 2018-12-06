@@ -18,13 +18,16 @@ import java.util.List;
 
 @WebServlet("/getBookByID")
 public class AddCartController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BookService bookService = new BookService();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(false);
+
+        double price = (double)(session.getAttribute("price"));
+        BookService bookService = new BookService();
+
         int count = (int) session.getAttribute("count");
         int id = Integer.parseInt(request.getParameter("id"));
         List<CartItem> cart = ((Cart) session.getAttribute("cart")).getBookList();
@@ -32,15 +35,17 @@ public class AddCartController extends HttpServlet {
         CartItem temp = new CartItem(book.getId(), book.getName(),
                 book.getAuthor(), book.getPrice(), book.getImage(),
                 book.getDescription(), book.getCategory_id(), 1);
+        price = price+book.getPrice();
+        session.setAttribute("price",price);
         if(cart.isEmpty()){
             cart.add(temp);
         }
         else {
             int flag=0;
-            for(int i = 0 ; i < cart.size() ; i++){
-                if(cart.get(i).getName().equals(book.getName())){
-                    cart.get(i).setNumber(cart.get(i).getNumber()+1);
-                    flag=1;
+            for (CartItem aCart : cart) {
+                if (aCart.getName().equals(book.getName())) {
+                    aCart.setNumber(aCart.getNumber() + 1);
+                    flag = 1;
                     break;
                 }
             }
@@ -64,7 +69,7 @@ public class AddCartController extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(cart);
         PrintWriter out = response.getWriter();
-        System.out.println(jsonStr);
+//        System.out.println(jsonStr);
         out.write(jsonStr);
     }
 }

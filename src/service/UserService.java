@@ -22,4 +22,7 @@ public class UserService {
     public List<User> quaryUsers(){
         return userdao.queryAll();
     }
+    public int getIdByName(String name){
+        return userdao.getIdByName(name);
+    }
 }

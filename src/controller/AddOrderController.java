@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,20 +17,14 @@ import java.util.Date;
 @WebServlet("/AddOrderController")
 public class AddOrderController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
         OrderService orderService = new OrderService();
-        String price_s = request.getParameter("price");
-        String state_s = request.getParameter("state");
-        String user_id_s = request.getParameter("user_id");
-
+        double price = (double)session.getAttribute("price");
+        boolean state = (boolean)session.getAttribute("state");
+        int user_id = (int)session.getAttribute("user_id");
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date ordertime = new Date();
-        double price = Double.valueOf(price_s);
-        boolean state = Boolean.getBoolean(state_s);
-        int user_id = Integer.parseInt(user_id_s);
-
-        boolean status = orderService.addOrder(ordertime, price, state, user_id);
-
-        request.setAttribute("status", status);
+        boolean status = orderService.addOrder(ordertime, price,state, user_id);
         if (status) {
             System.out.print("下单成功!");
             request.getRequestDispatcher("/orderSuccess.jsp").forward(request, response);
@@ -39,7 +34,7 @@ public class AddOrderController extends HttpServlet {
         }
 
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request,response);
     }
 }

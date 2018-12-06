@@ -24,20 +24,26 @@ public class LoginController extends HttpServlet {
             throws IOException {
         UserService userService = new UserService();
         String username = request.getParameter("id");
+        System.out.println("User name: "+username);
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
-        if(username.equals("admin")&&pwd.equals("admin")){
+        if (username.equals("admin") && pwd.equals("admin")) {
             response.sendRedirect("/adminpage.jsp");
-        }
-        else {
+        } else {
             int count = 0;
+            double price = 0.00;
             Cart cart = new Cart();
             boolean status = userService.login(username, pwd);
+
+            int user_id = userService.getIdByName(username);
             if (status) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
                 session.setAttribute("count", count);
                 session.setAttribute("cart", cart);
+                session.setAttribute("price", price);
+                session.setAttribute("state",false);
+                session.setAttribute("user_id",user_id);
                 response.sendRedirect("/mainpage.jsp");
             } else {
                 response.setCharacterEncoding("gb2312");

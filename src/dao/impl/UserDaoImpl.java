@@ -99,4 +99,27 @@ public class UserDaoImpl implements UserDao {
         }
         return list;
     }
+
+    @Override
+    public int getIdByName(String name) {
+        int id=-1;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select id from user where username = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, name);
+            rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeConnection(connection);
+        }
+        return id;
+    }
 }

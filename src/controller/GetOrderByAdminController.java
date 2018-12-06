@@ -3,6 +3,7 @@ package controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.OrderDao;
 import dao.impl.OrderDaoImpl;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import service.OrderService;
 import vo.Order;
 
@@ -28,6 +29,7 @@ public class GetOrderByAdminController extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(orderList);
         PrintWriter out = response.getWriter();
+        System.out.println(jsonStr);
         out.write(jsonStr);
     }
 }

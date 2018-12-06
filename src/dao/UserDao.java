@@ -11,5 +11,7 @@ public interface UserDao {
 
     boolean logup(String username, String pwd, String phone, String tel, String email, String add);
 
+
+    int getIdByName(String name);
     List<User> queryAll();
 }
