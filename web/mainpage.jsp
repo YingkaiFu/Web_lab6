@@ -26,6 +26,7 @@
 <div class="mdui-toolbar mdui-color-theme">
     <span class="mdui-typo-title">欢迎来到我的书店</span>
     <div class="mdui-toolbar-spacer"></div>
+    <a href="mainpage.jsp"><i class="mdui-icon material-icons">&#xe88a;</i>主页</a>
     <a href="home.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
     <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车
         <span id="count"><%=session.getAttribute("count")%></span>
@@ -58,8 +59,10 @@
                     listHtml += `<a class="mdui-list-item mdui-ripple"
                     href="javascript:showBook(` + obj[i].id + `)">` + obj[i].name + `</a>`;
                 }
+                showBook(1);
                 document.getElementById("categorylist").innerHTML = listHtml;
             }
+
         }
         xmlHttp.send();
     }
@@ -79,7 +82,7 @@
                     if (desc.length > 20) {
                         desc = desc.substring(0, 18)
                     }
-                    listbook += `<div class="mdui-col">
+                    listbook += `<div class="mdui-col" style="padding: 8px">
       <div class="mdui-card">
         <div class="mdui-card-media">
           <img src="` + bookSrc + `"/><div class="mdui-card-menu">
