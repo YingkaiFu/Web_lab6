@@ -26,6 +26,7 @@
 <div class="mdui-toolbar mdui-color-theme">
     <span class="mdui-typo-title">欢迎来到我的书店</span>
     <div class="mdui-toolbar-spacer"></div>
+    <a href="main.jsp"><i class="mdui-icon material-icons">&#xe88a;</i>主页</a>
     <a href="login.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal" data-target="#myModal">
         <i class="mdui-icon material-icons">&#xe853;</i>登陆</a>
     <a href="signUp.jsp" rel="tooltip" data_placement="bottom" data-toggle="modal" data-target="#myModal">
@@ -56,6 +57,7 @@
                     listHtml += `<a class="mdui-list-item mdui-ripple"
                     href="javascript:showBook(` + obj[i].id + `)">` + obj[i].name + `</a>`;
                 }
+                showBook(1);
                 document.getElementById("categorylist").innerHTML = listHtml;
             }
         }
@@ -90,7 +92,7 @@
         </div>
         <div class="mdui-card-content" style="padding: 8px">` + desc + `</div>
         <div class="mdui-card-actions">
-          <a href="login.jsp" class="mdui-btn mdui-ripple">加入购物车</a>
+          <a href="login.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal" data-target="#myModal" class="mdui-btn mdui-ripple">加入购物车</a>
           <button class="mdui-btn mdui-ripple">查看详情</button>` + `<button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">expand_more</i></button>
         </div>
       </div>

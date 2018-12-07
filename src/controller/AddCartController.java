@@ -27,7 +27,6 @@ public class AddCartController extends HttpServlet {
 
         double price = (double)(session.getAttribute("price"));
         BookService bookService = new BookService();
-
         int count = (int) session.getAttribute("count");
         int id = Integer.parseInt(request.getParameter("id"));
         List<CartItem> cart = ((Cart) session.getAttribute("cart")).getBookList();
@@ -38,6 +37,7 @@ public class AddCartController extends HttpServlet {
         price = price+book.getPrice();
         session.setAttribute("price",price);
         if(cart.isEmpty()){
+            count = count+1;
             cart.add(temp);
         }
         else {
