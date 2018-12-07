@@ -105,8 +105,8 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean addOrder(Date ordertime, double price, boolean state, int user_id) {
-        boolean status = false;
+    public int addOrder(Date ordertime, double price, boolean state, int user_id) {
+        int order_id = -1;
         Connection conn = null;
         PreparedStatement ps;
         ResultSet rs;
@@ -120,8 +120,10 @@ public class OrderDaoImpl implements OrderDao {
             ps.setDouble(2, price);
             ps.setBoolean(3, state);
             ps.setInt(4, user_id);
-            if (ps.executeUpdate() > 0)
-                status = true;
+            if (ps.executeUpdate() <= 0)
+                return -1;
+
+            order_id = ps.getGeneratedKeys().getInt(1);
 
 
         } catch (SQLException e) {
@@ -129,7 +131,7 @@ public class OrderDaoImpl implements OrderDao {
         } finally {
             JDBCUtil.closeConnection(conn);
         }
-        return status;
+        return order_id;
 
     }
 }

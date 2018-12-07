@@ -18,7 +18,7 @@
     <span class="mdui-typo-title">订单状况</span>
     <div class="mdui-toolbar-spacer"></div>
     <a href="mainpage.jsp"><i class="mdui-icon material-icons">&#xe88a;</i>主页</a>
-    <a href="home.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
+    <a href="myOrderInfo.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
     <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车
         <span id="count"><%=session.getAttribute("count")%></span>
     </a>

@@ -26,9 +26,14 @@ public class AddOrderController extends HttpServlet {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date ordertime = new Date();
         price = (double)Math.round(price*100)/100;
-        boolean status = orderService.addOrder(ordertime, price, state, user_id);
+        int order_id = orderService.addOrder(ordertime, price, state, user_id);
+
+        //TODO get List<orderItem> from user cart
+
+
+
         if (price >= 0) {
-            if (status) {
+            if (order_id >= 0) {
                 System.out.print("下单成功!");
                 int count = 0;
                 Cart cart = new Cart();

@@ -23,7 +23,7 @@ public class OrderService {
     public Order getOrderById(int id) throws SQLException {
         return order.getOrderById(id);
     }
-    public boolean addOrder(Date ordertime, double price, boolean state, int user_id){
+    public int addOrder(Date ordertime, double price, boolean state, int user_id){
         return order.addOrder(ordertime, price, state, user_id);
     }
 }
