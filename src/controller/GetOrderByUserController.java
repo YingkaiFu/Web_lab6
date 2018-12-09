@@ -10,6 +10,7 @@ import vo.Order;
 import vo.OrderItem;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+@WebServlet("/GetOrderByUserController")
 public class GetOrderByUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
@@ -30,9 +32,10 @@ public class GetOrderByUserController extends HttpServlet {
         OrderService orderService = new OrderService();
         List<Order> userOrderList = orderService.getOrderByUserId(user_id);
 
-        StringBuilder jsonStr = null;
+        StringBuilder jsonStr = new StringBuilder();
         response.setCharacterEncoding("UTF-8");
         ObjectMapper mapper = new ObjectMapper();
+        System.out.println("In Controller GetOrderByUserController");
 
         for (Order anUserOrderList : userOrderList) {
             int order_id = anUserOrderList.getId();
@@ -42,8 +45,8 @@ public class GetOrderByUserController extends HttpServlet {
         }
 
         PrintWriter out = response.getWriter();
-        System.out.println(jsonStr);
         out.write(jsonStr.toString());
+        System.out.println(jsonStr);
 
     }
 }
