@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bookstore" uuid="e3dbe8d2-b49f-47c9-818f-f8a559ecf46c">
+    <data-source source="LOCAL" name="bookstore" uuid="d3a76357-7603-48c9-a786-c62cd44ae7cc">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\huwei\Desktop\Web_lab6\src\bookstore.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\huwei\Desktop\Web_lab6\out\artifacts\Web_lab6_war_exploded\WEB-INF\classes\bookstore.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
@@ -20,13 +20,13 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="bookstore [2]" uuid="68ea1981-ec5c-47b5-8582-c98e8f9c909e">
+    <data-source source="LOCAL" name="bookstore [2]" uuid="8fa88445-5752-4696-9c0d-4c76e162e796">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\huwei\Desktop\Web_lab6\src\bookstore.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\huwei\Desktop\Web_lab6\out\artifacts\Web_lab6_war_exploded\WEB-INF\classes\bookstore.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

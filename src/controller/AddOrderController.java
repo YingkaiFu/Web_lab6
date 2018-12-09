@@ -2,6 +2,7 @@ package controller;
 
 import service.OrderService;
 import vo.Cart;
+import vo.CartItem;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 //int order_id, Date ordertime, double price, boolean state, int user_id
 @WebServlet("/AddOrderController")
@@ -27,8 +29,13 @@ public class AddOrderController extends HttpServlet {
         Date ordertime = new Date();
         price = (double)Math.round(price*100)/100;
         int order_id = orderService.addOrder(ordertime, price, state, user_id);
-
-        //TODO get List<orderItem> from user cart
+        List<CartItem> cartItemList = ((Cart) session.getAttribute("cart")).getBookList();
+        for (CartItem acart:cartItemList) {
+            int item_quantity = acart.getNumber();
+            double item_price = acart.getPrice();
+            int book_id = acart.getId();
+            int status = orderService.addOrderItem(item_quantity, item_price, order_id, book_id);
+        }
 
 
 
