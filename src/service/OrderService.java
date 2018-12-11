@@ -21,7 +21,6 @@ public class OrderService {
     public List<Order> getOrderByState(boolean state){
         return order.getOrderByState(state);
     }
-
     public List<Order> queryAll(){
         return order.queryAll();
     }
@@ -37,6 +36,8 @@ public class OrderService {
     public int addOrderItem(int quantity, double price, int order_id, int book_id){
         return orderItem.addOrderItem(quantity, price, order_id, book_id);
     }
-
+    public boolean updateOrderState(boolean state, int order_id){
+        return order.updateOrderState(state, order_id);
+    }
 
 }

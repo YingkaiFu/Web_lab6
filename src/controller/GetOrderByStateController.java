@@ -21,7 +21,6 @@ public class GetOrderByStateController extends HttpServlet {
     }
     //by Admin
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession(false);
         boolean orderState = Boolean.parseBoolean(request.getParameter("orderState"));
         OrderService orderService = new OrderService();
         List<Order> orderList = orderService.getOrderByState(orderState);

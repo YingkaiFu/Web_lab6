@@ -13,6 +13,7 @@ public interface OrderDao {
     List<Order> queryAll();
     Order getOrderById(int id) throws SQLException;
     int addOrder(Date ordertime, double price, boolean state, int user_id);
+    boolean updateOrderState(boolean state, int order_id);
 }
 
 

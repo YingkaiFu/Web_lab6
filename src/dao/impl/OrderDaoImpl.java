@@ -2,7 +2,7 @@ package dao.impl;
 
 import dao.JDBCUtil;
 import dao.OrderDao;
-import org.sqlite.JDBC;
+import dao.JDBCUtil;
 import vo.Order;
 
 import java.sql.*;
@@ -164,6 +164,29 @@ public class OrderDaoImpl implements OrderDao {
             JDBCUtil.closeConnection(conn);
         }
         return order_id;
+
+    }
+
+    @Override
+    public boolean updateOrderState(boolean state, int order_id) {
+        Connection conn = null;
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "UPDATE 'order' SET state = ? WHERE id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setBoolean(1, state);
+            ps.setInt(2,order_id);
+            if(ps.executeUpdate() <= 0)
+                return false;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeConnection(conn);
+        }
+        return true;
 
     }
 }
