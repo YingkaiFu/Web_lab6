@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/GetOrderByUserController")
+
 public class GetOrderByUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
