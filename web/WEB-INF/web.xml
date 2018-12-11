@@ -28,6 +28,14 @@
         <url-pattern>/getOrder</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>GetOrderByUserController</servlet-name>
+        <servlet-class>controller.GetOrderByUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOrderByUserController</servlet-name>
+        <url-pattern>/getOrderItem</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>QueryUserController</servlet-name>
         <servlet-class>controller.QueryUserController</servlet-class>
     </servlet>
