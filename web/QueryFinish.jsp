@@ -11,11 +11,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/mdui.min.css" rel="stylesheet"/>
-    <title>查询所有订单</title>
+    <title>查询已完成订单</title>
 </head>
-<body onload="initAJAX();showOrder()" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<body onload="initAJAX();showOrder(true)" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-typo-title">查询所有订单</span>
+    <span class="mdui-typo-title">查询已完成订单</span>
     <div class="mdui-toolbar-spacer"></div>
     <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
 </div>
@@ -42,8 +42,8 @@
 </div>
 </body>
 <script language="JavaScript">
-    function showOrder() {
-        xmlHttp.open("GET", "/getOrder", true);
+    function showOrder(state) {
+        xmlHttp.open("GET", "getByState?orderState="+state, true);
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4) {
                 var data = xmlHttp.responseText;
@@ -69,8 +69,6 @@
         };
         xmlHttp.send();
     };
-
-
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

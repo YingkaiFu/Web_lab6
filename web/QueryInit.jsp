@@ -13,20 +13,66 @@
     <link href="css/mdui.min.css" rel="stylesheet"/>
     <title>查询初始订单</title>
 </head>
-<body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<body onload="initAJAX();showOrder(false)" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div class="mdui-toolbar mdui-color-theme">
     <span class="mdui-typo-title">查询初始订单</span>
     <div class="mdui-toolbar-spacer"></div>
     <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
 </div>
 <div style="width: 960px;margin: 10px auto;">
-    <div class="mdui-table-fluid" style="width: 960px;margin:0 auto;text-align: center">
-
+    <div class="mdui-table-fluid" style="width: 960px;margin:0 auto">
+        <table class="mdui-table">
+            <thead>
+            <tr>
+                <th>订单号</th>
+                <th width="200px">时间</th>
+                <th>总价</th>
+                <th>状态</th>
+                <th>用户ID</th>
+            </tr>
+            </thead>
+            <tbody id="body">
+            </tbody>
+        </table>
     </div>
     <hr>
-
+    <div style="text-align: right">
+        <a href="adminpage.jsp" class="mdui-btn mdui-ripple mdui-color-red">返回</a>
+    </div>
 </div>
 </body>
+<script language="JavaScript">
+    function showOrder(state) {
+        xmlHttp.open("GET", "getByState?orderState="+state, true);
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var data = xmlHttp.responseText;
+                var obj = JSON.parse(data);
+                var listorder = '';
+                for (var i in obj) {
+                    var id = obj[i].id;
+                    var ordertime = obj[i].ordertime;
+                    var price = obj[i].price;
+                    var state= obj[i].state;
+                    var user_id=obj[i].user_id;
+
+                    listorder += `<tr>
+                    <td>`+id + `</td>
+                    <td width="100px">`+ordertime + `</td>
+                    <td>`+price + `</td>
+                        <td >`+state + `</td>
+                        <td>`+user_id+`</td>
+                        <td>`+ `<a href="UpdateOrderStateController?toUpdateOrderId=`+obj[i].id+`&toUpdateState=`+true+`" class="btn btn-primary" role="button">更改状态</a>`+
+                        `</tr>`;
+                }
+                document.getElementById("body").innerHTML = listorder;
+            }
+        };
+        xmlHttp.send();
+    }
+
+</script>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
