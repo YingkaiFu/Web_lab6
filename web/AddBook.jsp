@@ -36,12 +36,11 @@
                 <input name="remarks" class="form-control" type="text" placeholder="请简要描述此书">
             </div>
 
-            <div style="text-align: left">
-                <button class="mdui-btn mdui-ripple mdui-color-red" type="submit">提交</button>
+            <div>
+                <div style="float:left;"><button class="mdui-btn mdui-ripple mdui-color-red" type="submit">提交</button></div>
+                <div style="float:right;"><a href="adminpage.jsp" class="mdui-btn mdui-ripple mdui-color-red">返回</a></div>
             </div>
-            <div style="text-align: right">
-                    <a href="adminpage.jsp" class="mdui-btn mdui-ripple mdui-color-red">返回</a>
-            </div>
+
 
         </form>
     </div>
@@ -49,9 +48,6 @@
 
 </div>
 </body>
-
-
-
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
