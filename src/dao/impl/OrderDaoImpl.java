@@ -44,6 +44,38 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public List<Order> getOrderByState(boolean state) {
+        List<Order> list = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "SELECT id,ordertime,price,state,user_id FROM 'order' WHERE state = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setBoolean(1, state);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setOrdertime(rs.getDate("ordertime"));
+                order.setPrice(rs.getDouble("price"));
+                order.setState(rs.getBoolean("state"));
+                order.setUser_id(rs.getInt("user_id"));
+                list.add(order);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.closeConnection(conn);
+        }
+        return list;
+
+    }
+
+    @Override
     public List<Order> queryAll() {
 
         List<Order> list = new ArrayList<>();
