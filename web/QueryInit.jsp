@@ -10,36 +10,25 @@
 <head>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <title>网上书店</title>
-
+    <link href="css/mdui.min.css" rel="stylesheet"/>
+    <title>查询初始订单</title>
 </head>
-<body onload="initAJAX();showCategory()">
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"></div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div>
-    </div>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<div class="mdui-toolbar mdui-color-theme">
+    <span class="mdui-typo-title">查询初始订单</span>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
 </div>
+<div style="width: 960px;margin: 10px auto;">
+    <div class="mdui-table-fluid" style="width: 960px;margin:0 auto;text-align: center">
 
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="login span4">
-                <h1><a href=""> 欢迎来到<strong>我的</strong>书店</a>
-                    <span class="red">.</span></h1>
-            </div>
-            <div class="links span8">
-                <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
-                   data-target="#myModal"></a>
-            </div>
-        </div>
     </div>
+    <hr>
+
 </div>
-<%--header--%>
-
-
 </body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/commons.js"></script>
 </html>

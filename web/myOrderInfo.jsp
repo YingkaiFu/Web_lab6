@@ -11,39 +11,67 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/mdui.min.css" rel="stylesheet"/>
-    <title>我的订单</title>
+    <title>购物车</title>
 </head>
-<body onload="initAJAX();showOrder()" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<body onload="initAJAX();Update()" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-typo-title">我的订单</span>
+    <span class="mdui-typo-title">购物车</span>
     <div class="mdui-toolbar-spacer"></div>
     <a href="mainpage.jsp"><i class="mdui-icon material-icons">&#xe88a;</i>主页</a>
     <a href="myOrderInfo.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
     <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车<%=session.getAttribute("count")%></a>
     <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
 </div>
-<div id="my">
+<div style="width: 960px;margin: 10px auto;">
+    <div class="mdui-table-fluid" style="width: 960px;margin:0 auto">
+        <table class="mdui-table">
+            <thead>
+            <tr>
+                <th>订单号</th>
+                <th>编号</th>
+                <th>书籍编号</th>
+                <th>单价</th>
+                <th>数量</th>
+            </tr>
+            </thead>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
+    <hr>
 
 </div>
 </body>
-<script>
-    function showOrder() {
-        xmlHttp.open("GET", "/GetOrderByUserController", true);
+<script language="JavaScript">
+    function Update() {
+        xmlHttp.open("GET", "/getOrderInfo", true);
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4) {
                 var data = xmlHttp.responseText;
                 var obj = JSON.parse(data);
-                var listHtml = ``;
-                print(obj);
+                var listorderitem = '';
                 for (var i in obj) {
+                    var id = obj[i].id;
+                    var quantity = obj[i].quantity;
                     var price = obj[i].price;
-                    listHtml += `<a class="mdui-list-item mdui-ripple"
-                    href="javascript:showBook(` + obj[i].id + `)">` + price + `</a>`;
+                    var order_id = obj[i].order_id;
+                    var book_id=obj[i].book_id;
+                    listorderitem += `<tr>
+                    <td>`+order_id+`</td>
+                    <td>`+id+ `</td>
+                    <td>`+book_id+`</td>
+                    <td>`+price+`</td>
+                    <td>`+quantity+ `</td>
+                        </tr>`;
                 }
-                document.getElementById("my").innerHTML = listHtml;
+                document.getElementById("body").innerHTML = listorderitem;
             }
-        }
+        };
         xmlHttp.send();
+    };
+
+    function UpdateCount() {
+
     }
 </script>
 <script src="js/jquery.min.js"></script>
