@@ -17,7 +17,6 @@ import java.io.PrintWriter;
 public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

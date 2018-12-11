@@ -36,9 +36,6 @@ public class AddOrderController extends HttpServlet {
             int book_id = acart.getId();
             int status = orderService.addOrderItem(item_quantity, item_price, order_id, book_id);
         }
-
-
-
         if (price >= 0) {
             if (order_id >= 0) {
                 System.out.print("下单成功!");
