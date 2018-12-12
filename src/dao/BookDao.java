@@ -8,5 +8,5 @@ public interface BookDao {
     List<Book> getBookByCategory(int category_id);
 
     Book getBookById(int id);
-    boolean addBook(String bookname, String author, int price, String image, String remark);
+    boolean addBook(String bookname, String author, int price, String image, String remark,int category_id);
 }
