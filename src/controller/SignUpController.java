@@ -27,7 +27,6 @@ public class SignUpController extends HttpServlet {
         boolean status = userService.logup(username, pwd, phone, tel, email, add);
         request.setAttribute("status", status);
         response.setCharacterEncoding("gb2312");
-
         PrintWriter out = response.getWriter();
         if (username.isEmpty()|| pwd.isEmpty()){
             out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('用户名与密码不为空');");
