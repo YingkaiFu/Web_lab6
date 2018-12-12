@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface OrderDao {
     List<Order> getOrderByUserId(int user_id);
+    List<Order> getOrderByState(boolean state);
     List<Order> queryAll();
     Order getOrderById(int id) throws SQLException;
-    boolean addOrder(Date ordertime, double price, boolean state, int user_id);
+    int addOrder(Date ordertime, double price, boolean state, int user_id);
+    boolean updateOrderState(boolean state, int order_id);
 }
 
 

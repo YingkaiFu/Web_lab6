@@ -24,9 +24,6 @@ public class QueryUserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         UserService userService=new UserService();
-        /*ArrayList<Map> users=userService.quaryUsers();
-        request.setAttribute("Users",users);
-        request.getRequestDispatcher("/QueryUser.jsp").forward(request,response);*/
         List users=userService.quaryUsers();
         response.setCharacterEncoding("UTF-8");
         ObjectMapper mapper = new ObjectMapper();

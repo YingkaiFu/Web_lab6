@@ -20,12 +20,20 @@
         <url-pattern>/getCart</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>GetOrderByAdminController</servlet-name>
-        <servlet-class>controller.GetOrderByAdminController</servlet-class>
+        <servlet-name>GetOrderByUserController</servlet-name>
+        <servlet-class>controller.GetOrderByUserController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetOrderByAdminController</servlet-name>
-        <url-pattern>/getOrder</url-pattern>
+        <servlet-name>GetOrderByUserController</servlet-name>
+        <url-pattern>/getOrderItem</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GetOrderByStateController</servlet-name>
+        <servlet-class>controller.GetOrderByStateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOrderByStateController</servlet-name>
+        <url-pattern>/getByState</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>QueryUserController</servlet-name>
@@ -35,6 +43,7 @@
         <servlet-name>QueryUserController</servlet-name>
         <url-pattern>/getUser</url-pattern>
     </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>CategoryController</welcome-file>
     </welcome-file-list>

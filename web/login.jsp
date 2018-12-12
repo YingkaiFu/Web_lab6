@@ -5,6 +5,8 @@
     <meta charset="GB2312">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <title>登录界面</title>
 </head>
 <body>
@@ -24,17 +26,9 @@
 
         <div>
             <button class="btn btn-primary" type="submit">登录</button>
-
+            <button class="btn btn-danger" data-dismiss="modal">取消</button>
         </div>
     </form>
-    <div style="margin-top: -48px;margin-left: 200px">
-    <form action="main.jsp" method="post">
-    <button class="btn btn-danger" data-dismiss="modal">取消</button>
-    </form>
-    </div>
 </div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
