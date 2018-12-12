@@ -17,11 +17,11 @@
         <form class="form-group" action="AddBookController" method="post">
             <div class="form-group">
                 <label>书名</label>
-                <input name="bookname" class="form-control" type="text" placeholder="请输入书名">
+                <input name="bookname" class="form-control" type="text" maxlength="100" placeholder="请输入书名">
             </div>
             <div class="form-group">
                 <label>作者</label>
-                <input name="author" class="form-control" type="text" placeholder="请输入作者">
+                <input name="author" class="form-control" type="text" maxlength="100" placeholder="请输入作者">
             </div>
             <div class="form-group">
                 <label>价格</label>
@@ -29,11 +29,11 @@
             </div>
             <div class="form-group">
                 <label>图片</label>
-                <input name="image" class="form-control" type="text" placeholder="请输入图片链接">
+                <input name="image" class="form-control" type="text" maxlength="100" placeholder="请输入图片链接">
             </div>
             <div class="form-group">
                 <label>描述</label>
-                <input name="remarks" class="form-control" type="text" placeholder="请简要描述此书">
+                <input name="remarks" class="form-control" type="text" maxlength="255" placeholder="请简要描述此书">
             </div>
             <div class="form-group">
                 <label>书籍类别</label>
