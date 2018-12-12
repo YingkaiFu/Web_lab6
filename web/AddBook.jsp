@@ -36,8 +36,8 @@
                 <input name="remarks" class="form-control" type="text" placeholder="请简要描述此书">
             </div>
             <div class="form-group">
-                <label>书名</label>
-                <input name="state" class="form-control" type="text" placeholder="请输入书籍类别">
+                <label>书籍类别</label>
+                <input name="category_id" class="form-control" type="text" placeholder="请输入书籍类别">
             </div>
             <div>
                 <div style="float:left;"><button class="mdui-btn mdui-ripple mdui-color-red" type="submit">提交</button></div>
