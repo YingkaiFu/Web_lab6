@@ -38,26 +38,41 @@
             <thead>
             <tr>
                 <th>订单号</th>
-                <th>书籍编号</th>
-                <th>单价</th>
+                <th>书籍名称</th>
+                <th>价格</th>
                 <th>数量</th>
+                <th>总价</th>
             </tr>
             </thead>`;
                 var temp = 0;
+                var flag=1;
                 for (var i in obj) {
                     if (temp != obj[i].order_id) {
                         var listHtml = listHtml + `</table></div>
     <br><div class="mdui-table-fluid" style="width: 960px;margin:0 auto" ><table class="mdui-table">`;
                         temp = obj[i].order_id;
+                        flag=0;
                     }
                     var id = obj[i].id;
                     var quantity = obj[i].quantity;
-                    var price = obj[i].price;
+                    var price = obj[i].item_price;
                     var order_id = obj[i].order_id;
-                    var book_id=obj[i].book_id;
+                    var book_name=obj[i].book_name;
+                    var total = obj[i].order_price;
+
+                    if(flag==0){
+                        listHtml += `<tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="6">`+total+`</td>
+                        </tr>`;
+                        flag=1;
+                    }
                     listHtml += `<tr>
                     <td>`+order_id+`</td>
-                    <td>`+book_id+`</td>
+                    <td>`+book_name+`</td>
                     <td>`+price+`</td>
                     <td>`+quantity+ `</td>
                         </tr>`;

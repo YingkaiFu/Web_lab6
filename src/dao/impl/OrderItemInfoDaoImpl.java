@@ -30,7 +30,7 @@ public class OrderItemInfoDaoImpl implements OrderItemInfoDao {
             while (rs.next()){
                 OrderItemInfo orderItemInfo = new OrderItemInfo();
                 orderItemInfo.setOrder_id(rs.getInt("order_id"));
-                orderItemInfo.setName(rs.getString("name"));
+                orderItemInfo.setBook_name(rs.getString("name"));
                 orderItemInfo.setQuantity(rs.getInt("quantity"));
                 orderItemInfo.setItem_price(rs.getDouble("book_price") * rs.getInt("quantity"));
                 orderItemInfo.setOrder_price(rs.getDouble("order_price"));
