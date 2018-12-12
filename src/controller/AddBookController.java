@@ -20,9 +20,10 @@ public class AddBookController extends HttpServlet {
         int price = Integer.parseInt(request.getParameter("price"));
         String image = request.getParameter("image");
         String remark = request.getParameter("remark");
+        int category_id= Integer.parseInt(request.getParameter("category_id"));
 
 
-        boolean status = bookService.addBook(bookname,author,price,image,remark);
+        boolean status = bookService.addBook(bookname,author,price,image,remark,category_id);
         request.setAttribute("status", status);
         if (status) {
             response.setCharacterEncoding("gb2312");
