@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
             throws IOException {
         UserService userService = new UserService();
         String username = request.getParameter("id");
-        System.out.println(username);
+        System.out.println("User name: "+username);
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
         if (username.equals("admin") && pwd.equals("admin")) {
@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
                 response.setCharacterEncoding("gb2312");
                 PrintWriter out = response.getWriter();
                 out.print("<script type='text/javascript' language='javascript' charset='gb2312'>alert('登录失败');");
-                out.print("location.href='/login.jsp';");
+                out.print("location.href='/main.jsp';");
                 out.print("</script>");
             }
         }

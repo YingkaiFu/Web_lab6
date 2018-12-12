@@ -8,57 +8,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-
-    <title>网上书店</title>
-    <style>
-        th, tr, td, table {
-            border: 1px solid #000000;
-        }
-    </style>
+    <link href="css/mdui.min.css" rel="stylesheet"/>
+    <title>查询用户信息</title>
 </head>
-<body onload="initAJAX();showUser()">
-
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"></div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div>
+<body onload="initAJAX();showUser()" class="mdui-theme-primary-indigo mdui-theme-accent-pink">
+<div class="mdui-toolbar mdui-color-theme">
+    <span class="mdui-typo-title">用户信息</span>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
+</div>
+<div style="width: 960px;margin: 10px auto;">
+    <div class="mdui-table-fluid" style="width: 960px;margin:0 auto">
+        <table class="mdui-table">
+            <thead>
+            <tr>
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>电话</th>
+                <th>手机</th>
+                <th>Email</th>
+                <th>地址</th>
+            </tr>
+            </thead>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div style="text-align: right">
+        <a href="adminpage.jsp" class="mdui-btn mdui-ripple mdui-color-red">返回</a>
     </div>
 </div>
-
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="login span4">
-                <h1><a href=""> 欢迎来到<strong>我的</strong>书店</a>
-                    <span class="red">.</span></h1>
-            </div>
-            <div class="links span8">
-                <a class="logout" href="LogoutController" rel="tooltip" data-placement="bottom" data-toggle="modal"
-                   data-target="#myModal"></a>
-            </div>
-        </div>
-    </div>
-</div>
-<%--header--%>
-
-<div>
-    <table id = "user">
-        <%--<%--%>
-
-        <%--}--%>
-        <%--}--%>
-        <%--%>--%>
-    </table>
-</div>
-<div style="text-align: right">
-    <a style="margin-top: 10px" href="adminpage.jsp" class="btn btn-danger" role="button">返回</a>
-</div>
+</body>
 <script language="JavaScript">
     function showUser() {
         xmlHttp.open("GET", "/getUser", true);
@@ -83,7 +66,7 @@
                         <td>`+address+`</td>
                         </tr>`;
                 }
-                document.getElementById("user").innerHTML = listuser;
+                document.getElementById("body").innerHTML = listuser;
             }
         };
         xmlHttp.send();
@@ -92,5 +75,4 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/commons.js"></script>
-</body>
 </html>

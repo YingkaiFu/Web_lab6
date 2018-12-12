@@ -45,23 +45,22 @@ public class OrderItemDaoImpl implements OrderItemDao {
     }
 
     @Override
-    public boolean addOrderItem(int orderitem_id, int quantity, double price, int order_id, int book_id) {
-        boolean state = false;
+    public int addOrderItem( int quantity, double price, int order_id, int book_id) {
+        int orderItem_id = -1;
         Connection conn = null;
         PreparedStatement ps;
         ResultSet rs = null;
         try{
             conn = JDBCUtil.getConnection();
-            String sql = "INSERT INTO orderitem(id,quantity,price,order_id,book_id) values(?,?,?,?,?)";
+            String sql = "INSERT INTO orderitem(quantity,price,order_id,book_id) values(?,?,?,?)";
             ps = conn.prepareStatement(sql);
-            ps.setInt(1,orderitem_id);
-            ps.setInt(2,quantity);
-            ps.setDouble(3,price);
-            ps.setInt(4,order_id);
-            ps.setInt(5,book_id);
-            if(ps.executeUpdate() > 0)
-                state = true;
-
+            ps.setInt(1,quantity);
+            ps.setDouble(2,price);
+            ps.setInt(3,order_id);
+            ps.setInt(4,book_id);
+            if(ps.executeUpdate() <= 0)
+                return -1;
+            orderItem_id = ps.getGeneratedKeys().getInt(1);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,6 +69,6 @@ public class OrderItemDaoImpl implements OrderItemDao {
         }
 
 
-        return state;
+        return orderItem_id;
     }
 }
