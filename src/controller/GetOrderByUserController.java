@@ -7,6 +7,7 @@ import dao.impl.OrderDaoImpl;
 import service.OrderService;
 import vo.Order;
 import vo.OrderItem;
+import vo.OrderItemInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,27 +34,14 @@ public class GetOrderByUserController extends HttpServlet {
         OrderService orderService = new OrderService();
         List<Order> userOrderList = orderService.getOrderByUserId(user_id);
         response.setCharacterEncoding("UTF-8");
-//        StringBuilder jsonStr = new StringBuilder();
-//        ObjectMapper mapper = new ObjectMapper();
-//        System.out.println("In Controller GetOrderByUserController");
-//
-//        for (Order anUserOrderList : userOrderList) {
-//            int order_id = anUserOrderList.getId();
-//            Date ordertime = anUserOrderList.getOrdertime();
-//            String orderInfo = "{\"order_id\":\""+order_id+"\",\"ordertime\":\""+ordertime+"\"}";
-//            System.out.println(orderInfo);
-//            List<OrderItem> userOrderItemList = orderService.getOrderItemByOrderId(order_id);
-//            String jsonStrTemp = mapper.writeValueAsString(userOrderItemList);
-//            jsonStr.append(orderInfo);
-//            jsonStr.append(jsonStrTemp);
-//        }
-        List<OrderItem> lists = new ArrayList<>();
+
+        List<OrderItemInfo> lists = new ArrayList<>();
         for (Order anUserOrderList : userOrderList) {
             int order_id = anUserOrderList.getId();
 
             Date ordertime = anUserOrderList.getOrdertime();
-            List<OrderItem> userOrderItemList = orderService.getOrderItemByOrderId(order_id);
-            lists.addAll(userOrderItemList);
+            List<OrderItemInfo> userOrderItemInfoList = orderService.getOrderItemInfoByOrderId(order_id);
+            lists.addAll(userOrderItemInfoList);
         }
         ObjectMapper mapper = new ObjectMapper();
         String jsonStr = mapper.writeValueAsString(lists);

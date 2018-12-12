@@ -2,10 +2,13 @@ package service;
 
 import dao.OrderDao;
 import dao.OrderItemDao;
+import dao.OrderItemInfoDao;
 import dao.impl.OrderDaoImpl;
 import dao.impl.OrderItemDaoImpl;
+import dao.impl.OrderItemInfoDaoImpl;
 import vo.Order;
 import vo.OrderItem;
+import vo.OrderItemInfo;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -14,6 +17,8 @@ import java.util.List;
 public class OrderService {
     private OrderDao order = new OrderDaoImpl();
     private OrderItemDao orderItem = new OrderItemDaoImpl();
+    private OrderItemInfoDao orderItemInfo = new OrderItemInfoDaoImpl() {
+    };
 
     public List<Order> getOrderByUserId(int id){
         return order.getOrderByUserId(id);
@@ -30,6 +35,10 @@ public class OrderService {
     public Order getOrderById(int id) throws SQLException {
         return order.getOrderById(id);
     }
+    public List<OrderItemInfo> getOrderItemInfoByOrderId(int order_id){
+        return orderItemInfo.getOrderItemInfoByOrderId(order_id);
+    }
+
     public int addOrder(Date ordertime, double price, boolean state, int user_id){
         return order.addOrder(ordertime, price, state, user_id);
     }
