@@ -21,7 +21,10 @@ public class OrderItemInfoDaoImpl implements OrderItemInfoDao {
         ResultSet rs;
         try{
             conn = JDBCUtil.getConnection();
-            String sql = "SELECT order_id, name, quantity, book.price AS book_price, 'order'.price AS order_price FROM orderitem, book, 'order' WHERE orderitem.book_id = book.id AND 'order'.id = orderitem.order_id AND order_id = ?";
+            String sql
+            = "SELECT order_id, name, quantity, book.price AS book_price, 'order'.price AS order_price,'order'.ordertime,'order'.state" +
+                    " FROM orderitem, book, 'order' " +
+                    "WHERE orderitem.book_id = book.id AND 'order'.id = orderitem.order_id AND order_id = ?";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1,order_id);
@@ -29,6 +32,8 @@ public class OrderItemInfoDaoImpl implements OrderItemInfoDao {
 
             while (rs.next()){
                 OrderItemInfo orderItemInfo = new OrderItemInfo();
+                orderItemInfo.setOrder_time(rs.getDate("ordertime"));
+                orderItemInfo.setOrder_state(rs.getBoolean("state"));
                 orderItemInfo.setOrder_id(rs.getInt("order_id"));
                 orderItemInfo.setBook_name(rs.getString("name"));
                 orderItemInfo.setQuantity(rs.getInt("quantity"));

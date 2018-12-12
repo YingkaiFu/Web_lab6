@@ -34,7 +34,7 @@
 </div>
 
 <div class="mdui-row"> <%--下方左右div控制--%>
-    <div class="mdui-col-md-2" style="height:1000px"> <%--左侧菜单div控制--%>
+    <div class="mdui-col-md-2" style="height:1500px"> <%--左侧菜单div控制--%>
         <div class="mdui-list" id="categorylist">
         </div>
     </div>
@@ -93,7 +93,7 @@
         <div class="mdui-card-content" style="padding: 8px">` + desc + `</div>
         <div class="mdui-card-actions">
           <a href="login.jsp" rel="tooltip" data-placement="bottom" data-toggle="modal" data-target="#myModal" class="mdui-btn mdui-ripple">加入购物车</a>
-          <button class="mdui-btn mdui-ripple">查看详情</button>` + `<button class="mdui-btn mdui-btn-icon mdui-float-right"><i class="mdui-icon material-icons">expand_more</i></button>
+          <!--<button class="mdui-btn mdui-ripple">查看详情</button>-->` + `
         </div>
       </div>
     </div>`;

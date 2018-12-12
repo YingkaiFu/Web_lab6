@@ -54,6 +54,8 @@
                         flag=0;
                     }
                     var id = obj[i].id;
+                    var state = obj[i].order_state;
+                    var date = obj[i].order_time;
                     var quantity = obj[i].quantity;
                     var price = obj[i].item_price;
                     var order_id = obj[i].order_id;
@@ -62,8 +64,8 @@
 
                     if(flag==0){
                         listHtml += `<tr>
-                    <td></td>
-                    <td></td>
+                    <td>`+state+`</td>
+                    <td>`+date+`</td>
                     <td></td>
                     <td></td>
                     <td rowspan="6">`+total+`</td>

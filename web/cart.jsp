@@ -21,7 +21,8 @@
     <div class="mdui-toolbar-spacer"></div>
     <a href="mainpage.jsp"><i class="mdui-icon material-icons">&#xe88a;</i>主页</a>
     <a href="myOrderInfo.jsp"> <i class="mdui-icon material-icons">&#xe834;</i>订单</a>
-    <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车<%=session.getAttribute("count")%></a>
+    <a href="cart.jsp"><i class="mdui-icon material-icons">&#xe8cc;</i>购物车<%=session.getAttribute("count")%>
+    </a>
     <a href=LogoutController><i class="mdui-icon material-icons">&#xe8ac;</i>登出</a>
 </div>
 <div style="width: 960px;margin: 10px auto;">
@@ -42,7 +43,7 @@
     </div>
     <hr>
     <div style="text-align: right">
-        <span  style="margin-top: 10px">总价格为：</span>
+        <span style="margin-top: 10px">总价格为：</span>
         <span style="margin-top: 10px" id="total"></span>
         <a href="AddOrderController" class="mdui-btn mdui-ripple mdui-color-red">提交订单</a>
     </div>
@@ -56,19 +57,21 @@
                 var data = xmlHttp.responseText;
                 var obj = JSON.parse(data);
                 var listbook = '';
-                var total=0.00;
+                var total = 0.00;
                 for (var i in obj) {
                     var bookname = obj[i].name;
                     var price = obj[i].price;
                     var bookSrc = obj[i].image;
                     var number = obj[i].number;
-                    total+= parseFloat(price)*parseInt(number);
+                    total += parseFloat(price) * parseInt(number);
                     listbook += `<tr>
-                    <td><img src="`+bookSrc+`" width="80" height="80"></td>
-                        <td>`+bookname + `</td>
-                        <td>`+price+`</td>
-                        <td>`+number+`</td>
-                        <td>`+ `<a href="javascript:delete(` + obj[i].id + `)" class="btn btn-primary" role="button">删除</a>`+
+                    <td><img src="` + bookSrc + `" width="80" height="80"></td>
+                        <td>` + bookname + `</td>
+                        <td>` + price + `</td>
+                        <td>` + number + `</td>
+                        <td>` + `<a href="javascript:update(` + obj[i].id + `,0`+`)" class="btn btn-primary" role="button">+</a>` +
+                        `<a href="javascript:update(` + obj[i].id +`,1`+`)" class="btn btn-primary" role="button">-</a>
+                        </td>`+
                         `</tr>`;
                 }
                 document.getElementById("body").innerHTML = listbook;
@@ -78,7 +81,37 @@
         xmlHttp.send();
     };
 
-    function UpdateCount() {
+    function update(id,state) {
+        xmlHttp.open("GET", "/getCartCount?id="+id+"&state="+state, true);
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4) {
+                var data = xmlHttp.responseText;
+                var obj = JSON.parse(data);
+                var listbook = '';
+                var total = 0.00;
+                for (var i in obj) {
+                    var bookname = obj[i].name;
+                    var price = obj[i].price;
+                    var bookSrc = obj[i].image;
+                    var number = obj[i].number;
+                    total += parseFloat(price) * parseInt(number);
+                    listbook += `<tr>
+                    <td><img src="` + bookSrc + `" width="80" height="80"></td>
+                        <td>` + bookname + `</td>
+                        <td>` + price + `</td>
+                        <td>` + number + `</td>
+                        <td>` + `<a href="javascript:add(` + obj[i].id + `)" class="btn btn-primary" role="button">+</a>` +
+                        `<a href="javascript:del(` + obj[i].id + `)" class="btn btn-primary" role="button">-</a>
+                        </td>`+
+                        `</tr>`;
+                }
+                document.getElementById("body").innerHTML = listbook;
+                document.getElementById("total").innerHTML = total.toFixed(2);
+            }
+        };
+        xmlHttp.send();
+    }
+    function del(id) {
 
     }
 </script>

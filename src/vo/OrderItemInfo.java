@@ -1,13 +1,34 @@
 package vo;
 
+import java.util.Date;
+
 public class OrderItemInfo {
     private int id;
     private String book_name;
     private int quantity;
     private double item_price;
+    private Date order_time;
+    private boolean order_state;
     private double order_price;
     private int order_id;
     private int book_id;
+
+
+    public Date getOrder_time() {
+        return order_time;
+    }
+
+    public void setOrder_time(Date order_time) {
+        this.order_time = order_time;
+    }
+
+    public boolean isOrder_state() {
+        return order_state;
+    }
+
+    public void setOrder_state(boolean order_state) {
+        this.order_state = order_state;
+    }
 
     public int getId() {
         return id;
